@@ -1,0 +1,1 @@
+/* Компонент с props: variant, size, loading */
