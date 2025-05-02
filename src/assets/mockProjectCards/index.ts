@@ -13,8 +13,8 @@ export const mockProjectsCards = [
   },
   {
     id: 3,
-    title: 'mira',
-    description: 'real estate agency',
-    img: '/public/mockImg/projectCards/mira.png',
+    title: 'testtest',
+    description: 'testtest',
+    img: '/mockImg/projectCards/mira.png',
   },
 ];

@@ -1,1 +1,81 @@
-/* Стили карточек, стрелок, кнопки «Смотреть все» */
+.wrapper {
+  padding: 20px;
+}
+
+.header {
+  margin-left: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .decoration {
+    color: $color-green;
+    padding: 10px 16px;
+    border: 1px solid $color-green;
+    border-radius: 30px;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    align-self: flex-start;
+  }
+}
+
+.heading {
+  width: min-content;
+  color: $color-black;
+  font-weight: 300;
+  font-size: 64px;
+  text-transform: uppercase;
+  text-align: start;
+
+  .accent {
+    color: $color-green;
+  }
+}
+
+.navButtons {
+  display: flex;
+  align-self: flex-end;
+  gap: 28px;
+  width: 120px;
+  height: 20px;
+  margin-right: 100px;
+
+  button {
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    background-image: url('/src/assets/icons/arrow-left.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transition: all 0.2s ease;
+
+    &:last-child {
+      background-image: url('/src/assets/icons/arrow-right.svg');
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.slider {
+  margin-top: 60px;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.card {
+  min-width: 60%;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
