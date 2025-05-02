@@ -1,12 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path' // Для алиасов
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path'; // Для алиасов
 
 export default defineConfig({
   plugins: [
     react({
       // Оптимизации для больших проектов
       jsxRuntime: 'automatic', // Для React 17+
+      babel: {
+        plugins: ['babel-plugin-macros'],
+      },
     }),
   ],
   resolve: {
@@ -30,5 +33,13 @@ export default defineConfig({
     modules: {
       localsConvention: 'camelCase', // Для SCSS-модулей
     },
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @use "@/styles/globals.scss" as *;
+          @use "@/styles/base";
+        `,
+      },
+    },
   },
-})
+});
