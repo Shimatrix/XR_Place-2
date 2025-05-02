@@ -17,4 +17,10 @@ export const mockProjectsCards = [
     description: 'testtest',
     img: '/mockImg/projectCards/mira.png',
   },
+  {
+    id: 4,
+    title: 'testtest',
+    description: 'testtest',
+    img: '/mockImg/projectCards/mira.png',
+  },
 ];

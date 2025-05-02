@@ -15,6 +15,7 @@ interface Props {
 
 export const ProjectSlider: React.FC<Props> = ({ projects }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const isGridMode = projects.length >= 4;
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
@@ -25,25 +26,30 @@ export const ProjectSlider: React.FC<Props> = ({ projects }) => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${isGridMode ? styles.gridMode : ''}`}>
       <div className={styles.header}>
         <div className={styles.decoration}>Сотрудничество</div>
         <h2 className={styles.heading}>
           Реализованные <span className={styles.accent}>проекты</span>
         </h2>
-        <div className={styles.navButtons}>
-          <button onClick={handlePrev} />
-          <button onClick={handleNext} />
-        </div>
+
+        {isGridMode ? (
+          <a href="" className={styles.viewAllButton}>
+            Смотреть все проекты{' '}
+            <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 14 14 1m0 0H1m13 0v13" stroke="#4D4D4D" />
+            </svg>
+          </a>
+        ) : (
+          <div className={styles.navButtons}>
+            <button onClick={handlePrev} className={styles.arrowLeft} />
+            <button onClick={handleNext} className={styles.arrowRight} />
+          </div>
+        )}
       </div>
 
-      <div className={styles.slider}>
-        <div
-          className={styles.track}
-          style={{
-            transform: `translateX(-${currentIndex * 60}%)`,
-          }}
-        >
+      {isGridMode ? (
+        <div className={styles.grid}>
           {projects.map((project, i) => (
             <ProjectCard
               key={i}
@@ -54,7 +60,26 @@ export const ProjectSlider: React.FC<Props> = ({ projects }) => {
             />
           ))}
         </div>
-      </div>
+      ) : (
+        <div className={styles.slider}>
+          <div
+            className={styles.track}
+            style={{
+              transform: `translateX(-${currentIndex * 60}%)`,
+            }}
+          >
+            {projects.map((project, i) => (
+              <ProjectCard
+                key={i}
+                title={project.title}
+                description={project.description}
+                img={project.img}
+                className={styles.card}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
