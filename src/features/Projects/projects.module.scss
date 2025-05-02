@@ -1,5 +1,30 @@
-.wrapper {
-  padding: 20px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.viewAllButtonWrapper {
+  display: flex;
+  align-self: flex-end;
+}
+
+.viewAllButton {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $color-black;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  gap: 8px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .header {
@@ -75,7 +100,21 @@
 }
 
 .card {
-  min-width: 60%;
+  // min-width: 60%;
   flex-shrink: 0;
   margin-right: 20px;
+}
+
+.wrapper {
+  padding: 20px;
+
+  &.gridMode {
+    .header {
+      height: 176px;
+    }
+
+    .card {
+      max-width: 612px;
+    }
+  }
 }
