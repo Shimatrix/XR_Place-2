@@ -1,1 +1,41 @@
-/* Ключевые кадры анимации */
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center;
+  z-index: 2;
+  will-change: width, height;
+}
+
+.number {
+  color: #B0B0B0;
+  font-size: 150px;
+  font-family: "Gotham", Arial, sans-serif;
+  user-select: none;
+  transition: opacity 50ms linear;
+  will-change: opacity;
+}
