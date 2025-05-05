@@ -1,0 +1,82 @@
+.block-container {
+  margin: 0;
+  padding: 150px 0 155px; // в App.css заданы боковые padding = 100px
+}
+
+.block-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-group {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
+
+  // gap: 206px;
+  gap: clamp(26px, calc(26px + (206 - 28) * (100vw - 769px) / (1442 - 769)), 206px);
+}
+
+.label {
+  white-space: nowrap;
+  margin-right: 0;
+  align-self: flex-start;
+}
+
+.title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.description-wrapper {
+  width: 475px;
+
+  // margin-left: 632px;
+  margin-left: clamp(202px, calc(202px + (632 - 202) * (100vw - 769px) / (1442 - 769)), 632px);
+
+  .description {
+    margin: 0;
+    white-space: pre-line; // автоперенос текста
+  }
+}
+
+.client-block-cards {
+  margin-top: 42px;
+  height: 571px;
+  width: 100%;
+  background-color: grey; // Заглушка
+}
+
+// Мобильная версия
+@media (width < 769px) {
+  .block-container {
+    margin: 0;
+
+    // padding: 150px 0 155px; // в App.css заданы боковые padding = 100px
+    padding: 60px 0 16px;
+  }
+
+  .header-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    .title-group {
+      flex-flow: row wrap; // при длинном тексте переносится
+      justify-content: center;
+      gap: 0.3em; // отступ между строками
+    }
+  }
+
+  .description-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .client-block-cards {
+    margin-top: 28px;
+    height: 588px;
+  }
+}
