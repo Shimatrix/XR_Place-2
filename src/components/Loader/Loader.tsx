@@ -62,6 +62,8 @@ const Loader: React.FC = () => {
     const startTime = Date.now();
 
     const animate = () => {
+      if (!circleRef.current) return;
+
       const now = Date.now();
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
@@ -87,7 +89,7 @@ const Loader: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.background}></div>
+      <div className={styles.background} />
 
       <div ref={circleRef} className={styles.circle}>
         <div className={styles.number} style={{ opacity: numberOpacity }}>
