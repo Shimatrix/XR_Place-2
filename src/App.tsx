@@ -4,6 +4,7 @@ import { mockProjectsCards } from './assets/mockProjectCards/index';
 import { ProjectSlider } from './features/Projects/Projects';
 import { useEffect, useState } from 'react';
 import Loader from './components/Loader/Loader';
+import Header from './components/Header/Header';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,6 +25,7 @@ function App() {
         <Loader />
       ) : (
         <>
+          <Header/>
             <ProjectSlider projects={mockProjectsCards} />
         </>
       )}
