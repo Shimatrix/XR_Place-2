@@ -1,5 +1,4 @@
 import './App.css';
-import { ProjectCard } from './features/Projects/ProjectCard';
 import { mockProjectsCards } from './assets/mockProjectCards/index';
 import { ProjectSlider } from './features/Projects/Projects';
 
