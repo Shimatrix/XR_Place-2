@@ -1,1 +1,84 @@
 /* Стили */
+.button {
+  width: 100%;
+  padding: 25px 20px;
+  border: none;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-weight: 400;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  .title {
+    text-transform: uppercase;
+  }
+
+  // .arrow {
+  //   transition: transform 0.3s ease;
+  // }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: $color-black;
+  }
+
+  // &:hover:not(:disabled) {
+  //   .arrow {
+  //     transform: translateX(3px);
+  //   }
+  // }
+
+  &--green {
+    background-color: $color-green;
+    color: $color-white;
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-black;
+  }
+
+  &--white:hover {
+    color: $color-white;
+  }
+
+  // &--mobile {}
+
+  // &--desktop {}
+
+  &--loading {
+    position: relative;
+
+    .loader {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgb(255 255 255 / 30%);
+      border-radius: 50%;
+      border-top-color: currentcolor;
+      animation: spin 1s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (width < 769px) {
+  .button {
+    &--mobile {
+      padding: 15px 12px;
+      border-radius: 15px;
+    }
+  }
+}
