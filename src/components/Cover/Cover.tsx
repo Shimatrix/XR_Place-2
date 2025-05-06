@@ -20,8 +20,8 @@ const Cover = () => {
       {showCircle && <div className={styles.animatedCircle} />}
 
       <div className={`${styles.gridItem} ${styles.item1}`}>
-        {/* <h1 className={styles.cover_title}>HR PLACE</h1> */}
-        <h1 className={styles.cover_title}>
+        <h1 className={`${styles.cover_title} ${styles.cover_title_mask}`}>HR PLACE</h1>
+        {/* <h1 className={styles.cover_title}>
           <span className={styles.title_mask}>
             {'HR PLACE'.split('').map((letter, index) => (
               <span key={index} className={letter === ' ' ? styles.spaceChar : ''}>
@@ -29,7 +29,7 @@ const Cover = () => {
               </span>
             ))}
           </span>
-        </h1>
+        </h1> */}
       </div>
 
       <div className={`${styles.gridItem} ${styles.item2}`}>

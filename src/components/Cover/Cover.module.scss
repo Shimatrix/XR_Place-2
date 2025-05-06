@@ -133,19 +133,35 @@
   margin: 0;
   line-height: 100%;
   letter-spacing: -0.1em;
-  font-family: Gotham, Arial, sans-serif;
+  font-family: Arial, sans-serif;
   display: inline-block;
   position: relative;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
+
 
 .title_mask {
   background: linear-gradient(to bottom, #056654, #000);
   background-clip: text;
-  background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
+
+.cover_title_mask {
+  background: linear-gradient(to bottom, #056654, #000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  opacity: 0;
+  animation: fade-in-letter 1s ease-out 0.5s forwards;
+  will-change: opacity, transform;
+}
+
 
 .title_mask span {
   display: inline-block;
