@@ -68,17 +68,17 @@ const Philosophy: React.FC = () => {
             <>
               <div className={styles.subtitleGroup}>
                 <Typography variant="h3" className={styles.subtitleFirst}>
-                  ПРЕОБРАЗУЙТЕ СВОЁ
+                  преобразуйте своё
                   <br />
-                  ПРЕДСТАВЛЕНИЕ О ПОКУПКЕ НЕДВИЖИМОСТИ
+                  представление о покупке недвижимости
                 </Typography>
               </div>
               <div className={styles.subtitleGroupTwo}>
                 <Typography variant="h3" className={styles.subtitleSecond}>
-                  С ИНТЕРАКТИВНЫМИ ВИРТУАЛЬНЫМИ
+                  с интерактивными виртуальными
                 </Typography>
                 <Typography variant="h3" className={styles.subtitleThird}>
-                  3D ТУРАМИ
+                  3d турами
                 </Typography>
               </div>
             </>
