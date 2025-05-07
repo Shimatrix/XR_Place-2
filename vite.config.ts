@@ -1,12 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import path from 'path'; // Для алиасов
+import path from 'path';
 
 export default defineConfig({
   plugins: [
     react({
-      // Оптимизации для больших проектов
-      jsxRuntime: 'automatic', // Для React 17+
       babel: {
         plugins: ['babel-plugin-macros'],
       },
@@ -14,24 +12,27 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // Алиасы для абсолютных путей (совместимо с FSD)
       '@': path.resolve(__dirname, './src'),
       '@widgets': path.resolve(__dirname, './src/widgets'),
       '@shared': path.resolve(__dirname, './src/shared'),
     },
   },
-  build: {
-    chunkSizeWarningLimit: 2000, // Увеличиваем лимит для 3D-виджетов
-    minify: 'terser', // Оптимизация для продакшна
-  },
   server: {
-    host: true, // Доступ с других устройств
-    port: 3000, // Фиксируем порт
-    open: true, // Автооткрытие в браузере
+    host: true,
+    port: 3000,
+    open: true,
+    hmr: {
+      overlay: true, // Показывает ошибки поверх страницы
+      protocol: 'ws', // Используем ws для подключения
+    },
+  },
+  build: {
+    chunkSizeWarningLimit: 2000,
+    minify: 'terser',
   },
   css: {
     modules: {
-      localsConvention: 'camelCase', // Для SCSS-модулей
+      localsConvention: 'camelCase',
     },
     preprocessorOptions: {
       scss: {

@@ -21,6 +21,29 @@
   }
 }
 
+.h3 {
+  font-family: Inter, sans-serif;
+  font-weight: 300;
+  font-size: 34px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #2d2d2d;
+  text-align: left;
+
+  &.highlighted {
+    color: #055042;
+    letter-spacing: -0.04em;
+  }
+
+  @media (width <= 769px) {
+    // Меньший размер для мобильных устройств
+    font-size: 20px;
+    letter-spacing: -0.06em;
+    line-height: 1.6em;
+  }
+}
+
 .p {
   font-family: Inter, sans-serif;
   font-weight: 300;
@@ -32,6 +55,7 @@
 
   @media (width <= 769px) {
     font-size: 16px;
-    line-height: 115%; // Figma 110%
+    line-height: 100%; // Figma 110%
+    font-weight: 400;
   }
 }

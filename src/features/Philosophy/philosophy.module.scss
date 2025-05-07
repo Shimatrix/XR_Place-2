@@ -1,0 +1,163 @@
+.block-container {
+  width: 100%;
+  height: 658px;
+  margin: 0;
+  padding: 150px 0 155px;
+}
+
+.block-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-group {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
+  gap: clamp(26px, 26px + 78 * (100vw - 769px) / 673, 206px);
+}
+
+.label {
+  white-space: nowrap;
+  margin-right: 0;
+  align-self: flex-start;
+}
+
+.title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.description_wrapper {
+  width: 372px;
+  margin-left: 632px;
+
+  .description {
+    margin: 0;
+    white-space: pre-line;
+  }
+}
+
+.subtitleGroup {
+  margin-top: 62px;
+  margin-left: 418px;
+}
+
+.subtitleFirst {
+  margin: 0;
+  line-height: 1.1em;
+  letter-spacing: -0.06em;
+}
+
+.subtitleGroupTwo {
+  margin-left: 316px;
+  margin-top: 6px;
+}
+
+.subtitleSecond {
+  letter-spacing: -0.05em;
+}
+
+.subtitleThird {
+  margin: 6px 0 0 315px;
+}
+
+.imageWrapper {
+  float: left;
+  height: 247px;
+}
+
+.textContainer {
+  flex: 1;
+}
+
+.dotsPattern {
+  position: absolute;
+  top: 575.5px;
+  left: 1255px;
+  width: 94px;
+  height: 81px;
+  background-image: radial-gradient(rgb(77 77 77) 2px, transparent 1px);
+  background-size: 10.5px 9.5px;
+  opacity: 0.3;
+}
+
+// Мобильная версия
+@media (width <= 768px) {
+  .block-container {
+    padding: 60px 0 16px;
+  }
+
+  .block-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .title-group {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 0.3em;
+  }
+
+  .imageWrapper {
+    order: 2;
+    float: none;
+    width: 100%;
+    height: auto;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .mediaContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0;
+  }
+
+  .description_wrapper {
+    order: 1;
+    width: 100%;
+    margin-left: 0;
+    padding: 0;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .combinedSubtitle {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .combinedSubtitle .subtitleFirst {
+    margin: 0;
+    text-align: center;
+  }
+
+  .subtitleGroup,
+  .subtitleGroupTwo {
+    display: none;
+  }
+
+  .dotsPattern {
+    display: none;
+  }
+}

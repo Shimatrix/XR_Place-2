@@ -1,14 +1,13 @@
 import './App.css';
 import { mockProjectsCards } from './assets/mockProjectCards/index';
 import { ProjectSlider } from './features/Projects/Projects';
-
 import { useEffect, useState } from 'react';
 import Loader from './components/Loader/Loader';
 import Header from './components/Header/Header';
-
 import { BlockLabel } from './components/BlockLabel/BlockLabel';
 import BlockClients from './features/BlockClients/BlockClients';
 import Cover from './components/Cover/Cover';
+import Philosophy from '@/features/Philosophy/Philosophy';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,6 +28,7 @@ function App() {
         <>
           <Header />
           <Cover />
+          <Philosophy />
           <BlockClients />
           <ProjectSlider projects={mockProjectsCards} />
         </>

@@ -25,7 +25,7 @@
     "@types/react-dom": "19.1.2",
     "@typescript-eslint/eslint-plugin": "8.31.1",
     "@typescript-eslint/parser": "8.31.1",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "4.4.1",
     "babel-plugin-macros": "3.1.0",
     "commitizen": "4.3.1",
     "cz-conventional-changelog": "3.3.0",
@@ -42,7 +42,7 @@
     "stylelint-config-standard-scss": "14.0.0",
     "terser": "5.39.0",
     "typescript": "~5.7.2",
-    "vite": "^6.3.1"
+    "vite": "6.3.4"
   },
   "config": {
     "commitizen": {
