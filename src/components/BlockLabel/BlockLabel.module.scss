@@ -6,12 +6,12 @@
   text-align: center;
   text-transform: uppercase;
   color: $color-green;
-  padding-inline: 13px;
+  padding: 10px 16px;
   border: 1px solid $color-green;
   border-radius: 30px;
   height: 34px;
   align-items: center;
-  display: inline-flex;
+  display: flex;
 
   @media (width < 769px) {
     font-family: Manrope, sans-serif;
