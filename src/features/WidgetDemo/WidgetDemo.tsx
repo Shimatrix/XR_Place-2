@@ -13,6 +13,7 @@ interface TextContent {
   descriptions: [string, string];
   label?: string;
   listItems: string[];
+  imageDescriptions?: string[];
 }
 
 interface Props {
@@ -26,9 +27,6 @@ interface Props {
 
 export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleIndex = 1 }) => {
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
-  const emptyState = {
-    img: emptyStateImg,
-  };
   const defaultContent: TextContent = {
     titleParts: ['что', 'умеет', 'виджет'],
     descriptions: [
@@ -44,9 +42,17 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
       'Интерактивность',
       'кроссплатформенность',
     ],
+    imageDescriptions: [
+      'Полный круговой обзор здания с возможностью приближения деталей',
+      'Точные планировки помещений с вариантами отделки и мебели',
+      'Свободное перемещение по объекту в любом направлении',
+      'Точные размеры и пропорции, соответствующие реальности',
+      'Возможность взаимодействия с элементами интерьера',
+      'Работает на всех устройствах и платформах без ограничений',
+    ],
   };
 
-  const { titleParts, descriptions, label, listItems } = {
+  const { titleParts, descriptions, label, listItems, imageDescriptions } = {
     ...defaultContent,
     ...content,
   };
@@ -56,6 +62,17 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
       return images.items[selectedItem];
     }
     return images?.emptyState || emptyStateImg;
+  };
+
+  const getCurrentDescription = () => {
+    if (selectedItem !== null && imageDescriptions?.[selectedItem]) {
+      return imageDescriptions[selectedItem];
+    }
+    return null;
+  };
+
+  const prepareIndex = (index: number) => {
+    return `0${index + 1}.`;
   };
 
   return (
@@ -99,10 +116,20 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
               </li>
             ))}
           </ul>
-          <div className={styles.previewImg}>
-            <img src={getCurrentImage()} alt="preview-mock-img" />
+          <div className={styles.imgWrapper}>
+            <div className={styles.previewImg}>
+              <img src={getCurrentImage()} alt="preview-mock-img" />
+            </div>
+            {/* Описание появляется только когда выбран конкретный пункт */}
+            {selectedItem !== null && (
+              <div className={styles.imageDescription}>
+                <Typography variant="span" className={styles.descriptionIndex}>
+                  {prepareIndex(selectedItem)}
+                </Typography>
+                <Typography variant="p">{getCurrentDescription()}</Typography>
+              </div>
+            )}
           </div>
-          {/* вот тут описания для каждого индекса */}
         </div>
       </div>
     </div>
