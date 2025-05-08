@@ -1,5 +1,5 @@
 /* Логика выбора slider/grid по кол-ву проектов */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ProjectCard } from './ProjectCard';
 import styles from './Projects.module.scss';
 import { Button } from '@/components/Button/Button';
@@ -17,7 +17,7 @@ interface Props {
 
 export const ProjectSlider: React.FC<Props> = ({ projects }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const isMobile = window.innerWidth < 767;
+  const [isMobile, setIsMobile] = useState(false);
   const isGridMode = projects.length >= 4;
   const labelText = 'Сотрудничество';
 
@@ -30,6 +30,18 @@ export const ProjectSlider: React.FC<Props> = ({ projects }) => {
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % projects.length);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 769);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div
