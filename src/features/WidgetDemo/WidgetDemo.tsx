@@ -1,5 +1,5 @@
 /* iFrame + видео кнопка + loading state */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './widget-demo.module.scss';
 import { BlockLabel } from '@/components/BlockLabel/BlockLabel';
 import Typography from '@/components/Typography/Typography';
@@ -27,6 +27,8 @@ interface Props {
 
 export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleIndex = 1 }) => {
   const [selectedItem, setSelectedItem] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
   const defaultContent: TextContent = {
     titleParts: ['что', 'умеет', 'виджет'],
     descriptions: [
@@ -75,6 +77,18 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
     return `0${index + 1}.`;
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 769);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -116,11 +130,27 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
               </li>
             ))}
           </ul>
+          {!isMobile && (
+            <div className={styles.imgWrapper}>
+              <div className={styles.previewImg}>
+                <img src={getCurrentImage()} alt="preview-mock-img" />
+              </div>
+              {selectedItem !== null && (
+                <div className={styles.imageDescription}>
+                  <Typography variant="span" className={styles.descriptionIndex}>
+                    {prepareIndex(selectedItem)}
+                  </Typography>
+                  <Typography variant="p">{getCurrentDescription()}</Typography>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+        {isMobile && (
           <div className={styles.imgWrapper}>
             <div className={styles.previewImg}>
               <img src={getCurrentImage()} alt="preview-mock-img" />
             </div>
-            {/* Описание появляется только когда выбран конкретный пункт */}
             {selectedItem !== null && (
               <div className={styles.imageDescription}>
                 <Typography variant="span" className={styles.descriptionIndex}>
@@ -130,7 +160,7 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
               </div>
             )}
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
