@@ -1,5 +1,6 @@
 .header {
   background-color: #fff;
+
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
   padding: 15px 0;
   font-family: Arial, sans-serif;
@@ -54,7 +55,7 @@
 }
 
 .menu_link::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 0;
   height: 2px;
@@ -160,10 +161,11 @@
   animation-delay: 2.2s;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }

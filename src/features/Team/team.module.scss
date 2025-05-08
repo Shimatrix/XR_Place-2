@@ -1,1 +1,197 @@
-/* Стили карточек и фото-mask */
+.header {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  margin-bottom: 3.75rem; // 60px
+}
+
+.teamSection {
+  max-width: 90rem; // 1440px
+  margin: 0;
+  padding-top: 9.375rem; // 150px
+  font-family: Inter, sans-serif;
+}
+
+.sectionLabel {
+  display: inline-block;
+  border: 0.0625rem solid #055042; // 1px
+  border-radius: 1.25rem; // 20px
+  padding: 0.4rem 1.2rem;
+  color: #055042;
+  font-size: 1.25rem; // 20px
+  text-transform: uppercase;
+  position: absolute;
+  margin-left: 6.25rem; // 100px
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.title {
+  font-size: 2.5rem; //64px
+  font-weight: 300;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  color: #4d4d4d;
+
+  span {
+    color: #055042;
+  }
+}
+
+// .row {
+// display: flex;
+// justify-content: space-between;
+// align-items: flex-start;
+// flex-wrap: wrap;
+//   margin: 0 200px 0;
+//   gap: 24px;
+//   min-height: 328px;
+// }
+
+.card {
+  background: url('/public/mockImg/Team/card-background.jpg');
+  border-radius: 0.75rem; // 12px
+  width: 400px; // 300px
+  height: 328px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 0.25rem 0.5rem rgb(0 0 0 / 5%);
+  position: relative; // Для абсолютного позиционирования SVG
+  overflow: hidden; // Чтобы SVG не выходили за границы
+  justify-content: space-between;
+}
+
+.dotsPattern {
+  position: absolute;
+  top: 19px;
+  right: 34px;
+  z-index: 1;
+}
+
+.linesPattern {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.linesPatternBottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.circleLines {
+  position: absolute;
+  left: 29px;
+  bottom: 94px;
+}
+
+.avatar {
+  width: 79px; // 50px
+  height: 79px;
+  border-radius: 0.5rem; // 8px
+  position: relative; // Поднимаем аватар над паттернами
+  z-index: 2;
+  margin: 18px 0 0 18px;
+}
+
+.cardInfo {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  margin: 0 0 21px 18px;
+  font-family: Helvetica, Arial, sans-serif;
+
+  h3 {
+    font-size: 38px;
+    color: #055042;
+    margin: 0;
+  }
+
+  p {
+    font-size: 16px;
+    color: #4d4d4d;
+  }
+}
+
+.cardRightAligned {
+  align-items: flex-end; // перемещает контент к правому краю
+}
+
+.avatarRight {
+  margin: 18px 18px 0 auto; // вправо
+}
+
+.cardInfoRight {
+  margin: 0 18px 21px auto;
+  text-align: right;
+  font-family: Helvetica, Arial, sans-serif;
+
+  h3,
+  p {
+    text-align: right;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 210px;
+  gap: 24px;
+  min-height: 328px;
+}
+
+.textBlock {
+  flex: 1;
+  max-width: 37.5rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  height: 328px;
+  padding-bottom: 11px;
+
+  p {
+    margin: 0;
+    color: #2d2d2d;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  &Left {
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+    margin-left: auto;
+  }
+
+  &Right {
+    text-align: left;
+  }
+}
+
+@media (width <= 360px) {
+  .paragraph1 {
+    order: 1;
+  }
+
+  .card:first-of-type {
+    order: 2;
+  }
+
+  .paragraph2 {
+    order: 3;
+  }
+
+  .cardRightAligned {
+    order: 4;
+  }
+
+  .textBlockLeft {
+    order: 5;
+  }
+}
