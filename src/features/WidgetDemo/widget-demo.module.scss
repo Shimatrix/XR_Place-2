@@ -1,1 +1,42 @@
 /* Стили рамок и состояния loading */
+.wrapper {
+  margin-top: 100px;
+}
+
+.header {
+  display: flex;
+  gap: 200px;
+
+  .heading {
+    margin-right: $spacing-xs;
+  }
+
+  .accent {
+    color: $color-green;
+  }
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+
+  .descriptionParagraph {
+    width: 378px;
+
+    &:first-child {
+      margin-left: 630px;
+    }
+
+    &:last-child {
+      margin-left: 300px;
+    }
+  }
+}
+
+// .toggleWrapper {
+//   .toggle {}
+
+//   .image {}
+// }

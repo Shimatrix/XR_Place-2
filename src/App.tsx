@@ -8,6 +8,7 @@ import { BlockLabel } from './components/BlockLabel/BlockLabel';
 import BlockClients from './features/BlockClients/BlockClients';
 import Cover from './components/Cover/Cover';
 import Philosophy from '@/features/Philosophy/Philosophy';
+import { WidgetDemo } from './features/WidgetDemo/WidgetDemo';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,6 +30,7 @@ function App() {
           <Header />
           <Cover />
           <Philosophy />
+          <WidgetDemo />
           <BlockClients />
           <ProjectSlider projects={mockProjectsCards} />
         </>
