@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ProjectCard } from './ProjectCard';
 import styles from './Projects.module.scss';
 import { Button } from '@/components/Button/Button';
+import { BlockLabel } from '@/components/BlockLabel/BlockLabel';
 
 interface Project {
   title: string;
@@ -18,6 +19,7 @@ export const ProjectSlider: React.FC<Props> = ({ projects }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const isMobile = window.innerWidth < 767;
   const isGridMode = projects.length >= 4;
+  const labelText = 'Сотрудничество';
 
   projects = isMobile ? projects.slice(0, 3) : projects;
 
@@ -34,7 +36,7 @@ export const ProjectSlider: React.FC<Props> = ({ projects }) => {
       className={`${styles.wrapper} ${isGridMode ? styles.gridMode : ''} ${isMobile ? styles.mobileMode : ''}`}
     >
       <div className={styles.header}>
-        <div className={styles.decoration}>Сотрудничество</div>
+        <BlockLabel className={styles.decoration}>{labelText}</BlockLabel>
         <h2 className={styles.heading}>
           Реализованные <span className={styles.accent}>проекты</span>
         </h2>
@@ -56,7 +58,7 @@ export const ProjectSlider: React.FC<Props> = ({ projects }) => {
 
       {isGridMode || isMobile ? (
         <div>
-          <div className={styles.grid}>
+          <div className={styles.projectsWrapper}>
             {projects.map((project, i) => (
               <ProjectCard
                 key={i}
