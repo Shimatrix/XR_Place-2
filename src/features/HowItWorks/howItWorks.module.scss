@@ -1,0 +1,228 @@
+/* Стили блока без анимации */
+@use '@/styles/globals' as *;
+
+/* Общее для компьютерной и телефонной версий */
+
+.howItWorksBlock {
+  position: relative;
+  overflow: hidden;
+  color: $color-white;
+  text-align: start;
+  text-transform: uppercase;
+  background-color: rgb(25 25 25 / 100%);
+  margin: 0 -100px;
+
+  @media (width < 769px) {
+    margin: 0 -25px;
+  }
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient($radial-grad);
+  background: radial-gradient($radial-grad);
+  background: radial-gradient($radial-grad);
+  background: radial-gradient($radial-grad);
+  background: radial-gradient($radial-grad);
+  mix-blend-mode: difference;
+}
+
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Helvetica, Times, sans-serif;
+  font-weight: 400;
+}
+
+.mainText {
+  font-family: Helvetica, Times, sans-serif;
+  font-weight: 400;
+  isolation: isolate;
+}
+
+.button {
+  display: block;
+  border: none;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.buttonContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Для компьютерной версии */
+
+@media (width >= 574px) {
+  .circle {
+    top: clamp(0px, 4vw + 75px, 133px);
+    left: -245px;
+    width: clamp(435px, 19.3vw + 351px, 630px);
+    height: clamp(435px, 19.3vw + 351px, 630px);
+  }
+
+  .title {
+    padding: 90px clamp(0px, 2.78vw, 40px) 0 clamp(0px, 5.55vw, 100px);
+    font-size: clamp(6.25rem, -0.0882rem + 17.6674vw, 15.8125rem);
+    line-height: clamp(5.5rem, 3.0833rem + 10.7407vw, 12.75rem);
+    letter-spacing: clamp(-12pt, -0.74vw + -0.3pt, -4pt);
+  }
+
+  .title div:nth-of-type(2) {
+    padding-right: clamp(0px, 4.6vw - 35.4px, 31px);
+  }
+
+  .title div:last-of-type {
+    letter-spacing: clamp(-5px, -0.45vw + 1.4px, -2px);
+  }
+
+  .title svg {
+    width: clamp(0px, 14.65vw, 211px);
+    height: clamp(0px, 7.36vw, 106px);
+  }
+
+  .heading {
+    position: relative;
+    margin-right: 27px;
+    margin-left: clamp(0px, 16.4vw + 130px, 369px);
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient($linear-grad);
+    border-image: linear-gradient($linear-grad);
+    border-image: linear-gradient($linear-grad);
+    border-image: linear-gradient($linear-grad);
+    border-image: linear-gradient($linear-grad);
+    padding: 16px 18px 14px 0;
+    color: $color-gray;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.3px;
+    text-align: end;
+    border-image-slice: 1;
+    isolation: isolate;
+  }
+
+  .heading::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    bottom: -3px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: $color-light-green;
+  }
+
+  .mainText {
+    font-size: clamp(1.125rem, 1.0833rem + 0.1852vw, 1.25rem);
+    line-height: 28px;
+  }
+
+  .mainText:first-of-type {
+    max-width: 447px;
+    margin: 42px auto 0 clamp(0px, 36.1vw, 520px); // clamp(0px, 32.8vw, 473px)
+  }
+
+  .mainText:last-of-type {
+    max-width: 506px;
+    margin: 7px auto 0 clamp(0px, 21.5vw, 310px); // clamp(0px, 43.4vw, 625px)
+  }
+
+  .button {
+    width: calc(100% - 15.14vw);
+    margin: 57px auto 80px;
+    border-radius: 22px;
+    padding: 20px;
+    font-size: 14pt;
+    letter-spacing: 0.2pt;
+  }
+
+  .textForDesctop {
+    display: block;
+  }
+
+  .textForMobile {
+    display: none;
+  }
+}
+
+/* Для телефонной версии */
+
+@media (width < 574px) {
+  .circle {
+    top: clamp(117px, 15vw + 63px, 178px);
+    left: clamp(-335px, -26.7vw - 130px, -226px);
+    width: clamp(435px, 52.7vw + 245.3px, 650px);
+    height: clamp(435px, 52.7vw + 245.3px, 650px);
+    margin-right: 0;
+  }
+
+  .title {
+    margin-right: -90px;
+    padding: 22px clamp(40px, 3.7vw + 27px, 55px) 0 clamp(27px, 2.9vw + 16.4px, 39px); // 32px 55px 0 39px
+    font-size: clamp(6.25rem, -0.7328rem + 31.0345vw, 9.625rem); // 100px; // 154px
+    line-height: clamp(5.5rem, -0.319rem + 25.8621vw, 8.3125rem); // 88px; // 133px
+    letter-spacing: clamp(-0.5625rem, 0.2134rem + -3.4483vw, -0.9375rem); // -9px; // -15px
+  }
+
+  .title div:nth-of-type(2) {
+    padding-right: clamp(0px, -7.6vw + 58.35px, 31px); // 0px
+  }
+
+  .title div:nth-of-type(3) {
+    padding-left: clamp(116px, 13.7vw + 66.6px, 172px); // 172px
+  }
+
+  .title div:nth-of-type(4) {
+    padding-left: clamp(9px, 1.2vw + 4.6px, 14px); // 14px
+    line-height: clamp(6.875rem, 0.1509rem + 29.8851vw, 10.125rem); // 110px; // 162px
+  }
+
+  .title svg {
+    width: clamp(152px, 17.6vw + 88.5px, 224px);
+    height: clamp(76px, 13.7vw + 26.6px, 132px);
+  }
+
+  .heading {
+    display: none;
+  }
+
+  .mainText {
+    font-size: clamp(1.125rem, -0.0388rem + 5.1724vw, 1.6875rem); // 18px; // 27px
+    line-height: clamp(1.75rem, -0.0603rem + 8.046vw, 2.625rem); // 28px; // 42px
+  }
+
+  .mainText:first-of-type {
+    padding: 47px clamp(20px, 1.2vw + 15.6px, 25px) 0 clamp(61px, 6.6vw + 37.2px, 88px); // 72px 25px 0 88px
+    text-align: end;
+  }
+
+  .mainText:last-of-type {
+    padding: 30px clamp(59px, 5.4vw + 39.6px, 81px) 0 clamp(19px, 2.7vw + 9.3px, 30px); // 43px 81px 0 30px
+    letter-spacing: 0.2px;
+  }
+
+  .button {
+    width: calc(100% - 30px);
+    margin: 41px auto 80px;
+    border-radius: 18px;
+    padding: 16px;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.7px;
+  }
+
+  .textForDesctop {
+    display: none;
+  }
+
+  .textForMobile {
+    display: block;
+  }
+}

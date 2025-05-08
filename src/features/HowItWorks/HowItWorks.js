@@ -1,0 +1,19 @@
+'use strict';
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+/* Блок "как это работает" с кнопкой CTA */
+//import { Button } from '../../components/Button';
+import { useLocation } from 'react-router-dom';
+import styles from './HowItWorks.module.scss';
+export const HowItWorksBlock = ({ openModal, closeModal, children }) => {
+    const location = useLocation();
+    const background = location.state?.background;
+    return (_jsxs("div", { className: `${styles.howItWorksBlock}`, children: [_jsx("div", { className: `${styles.circle}` }), _jsxs("h1", { className: `${styles.title}`, children: [_jsx("div", { children: "\u043A\u0430\u043A" }), _jsx("div", { children: _jsxs("svg", { viewBox: "0 0 211 106", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [_jsx("circle", { cx: "52.6816", cy: "53.125", r: "52.5", fill: "white" }), _jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M105.182 0.625L105.182 105.625C134.177 105.625 157.682 82.1199 157.682 53.125C157.682 24.1301 134.177 0.625 105.182 0.625Z", fill: "white" }), _jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M157.682 0.625L157.682 105.625C186.677 105.625 210.182 82.1199 210.182 53.125C210.182 24.1301 186.677 0.625 157.682 0.625Z", fill: "white" })] }) }), _jsx("div", { children: "\u044D\u0442\u043E" }), _jsx("div", { className: `${styles.textForMobile}`, children: "\u0431\u0443\u0434\u0435\u0442" }), _jsx("div", { className: `${styles.textForDesctop}`, children: "\u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442" })] }), _jsx("h3", { className: `${styles.heading}`, children: "\u0443\u0437\u043D\u0430\u0439\u0442\u0435, \u043A\u0430\u043A \u044D\u0442\u043E \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442" }), _jsx("p", { className: `${styles.mainText}`, children: "\u041D\u0430\u0448\u0438 \u0438\u043D\u0442\u0435\u0440\u0430\u043A\u0442\u0438\u0432\u043D\u044B\u0435 \u0440\u0435\u0448\u0435\u043D\u0438\u044F \u043F\u043E\u043C\u043E\u0433\u0443\u0442 \u0432\u0430\u0448\u0438\u043C \u043A\u043B\u0438\u0435\u043D\u0442\u0430\u043C \u0441 \u0432\u044B\u0431\u043E\u0440\u043E\u043C \u043D\u0435\u0434\u0432\u0438\u0436\u0438\u043C\u043E\u0441\u0442\u0438" }), _jsx("p", { className: `${styles.mainText}`, children: "\u0421\u043E\u0437\u0434\u0430\u0439\u0442\u0435 \u043D\u0435\u0437\u0430\u0431\u044B\u0432\u0430\u0435\u043C\u044B\u0439 \u043E\u043F\u044B\u0442 \u0434\u043B\u044F \u0441\u0432\u043E\u0438\u0445 \u043A\u043B\u0438\u0435\u043D\u0442\u043E\u0432 \u0441 \u043F\u043E\u043C\u043E\u0449\u044C\u044E \u043D\u0430\u0448\u0438\u0445 \u0432\u0438\u0440\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0445 \u0442\u0443\u0440\u043E\u0432" }), _jsx("button", { className: `${styles.button}`, type: 'button', onClick: openModal, children: _jsxs("div", { className: `${styles.buttonContent}`, children: [_jsx("p", { className: `${styles.textForMobile}`, children: "\u0417\u0430\u043A\u0430\u0437\u0430\u0442\u044C \u0434\u0435\u043C\u043E" }), _jsx("p", { className: `${styles.textForDesctop}`, children: "\u041D\u0430\u0437\u043D\u0430\u0447\u0438\u0442\u044C \u0434\u0435\u043C\u043E" }), _jsxs("svg", { width: "22", height: "22", viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [_jsx("circle", { cx: "11.0001", cy: "11.0001", r: "10.1708", fill: "white", stroke: "#2D2D2D", "stroke-width": "0.462311" }), _jsx("path", { d: "M5.68311 16.0857L16.3163 6.146M16.3163 6.146H5.68311M16.3163 6.146V16.0857", stroke: "#2D2D2D", "stroke-width": "0.693466" })] })] }) })] }));
+    /*
+      {background && (
+        <Modal onClose={closeModal}>
+          {children}
+        </Modal>
+       )}
+     */
+};
+//# sourceMappingURL=HowItWorks.js.map

@@ -3,6 +3,10 @@
   margin: 0 auto;
   padding: 0 100px;
   text-align: center;
+
+  @media (width < 769px) {
+    padding: 0 25px;
+  }
 }
 
 .logo {
