@@ -4,6 +4,12 @@
 $color-black: rgb(77 77 77 / 100%); // Основной черный
 $color-green: rgb(5 80 66 / 100%); // Зеленый
 $color-white: rgb(255 255 255); // Белый
+$color-lilac-gray: rgb(217 217 217 / 100%); // Белый
+$color-light-green: rgb(11 182 150 / 100%); // Светло-зеленый
+$color-gray: rgb(149 149 149 / 100%); // Серый
+$color-lilac-gray: rgb(217 217 217 / 100%); // Белый
+$color-light-green: rgb(11 182 150 / 100%); // Светло-зеленый
+$color-gray: rgb(149 149 149 / 100%); // Серый
 
 // Типографика
 $font-main: 'Inter', sans-serif;
@@ -28,3 +34,15 @@ $shadow-lg: 0 10px 15px rgba($color-black, 0.1);
 $radius-sm: 4px;
 $radius-md: 8px;
 $radius-lg: 20px;
+
+// Градиенты
+$linear-grad:
+  to right,
+  rgb(5 80 66),
+  rgb(11 182 150);
+$radial-grad:
+  50% 50% at 50% 50%,
+  #0bb696 0%,
+  #098971 33%,
+  #066856 69%,
+  #055042 92.7%;
