@@ -3,14 +3,20 @@
 //import { Button } from '../../components/Button';
 import { useLocation } from 'react-router-dom';
 import styles from './HowItWorks.module.scss';
+import { Modal } from '../../components/Modal/Modal';
 
-interface Props {
-  openModal?: () => void;
-  closeModal?: () => void;
+interface HowItWorksProps {
+  openModal: () => void;
+  closeModal: () => void;
   children?: React.ReactNode;
 }
 
-export const HowItWorksBlock: React.FC = ({}) => {
+export const HowItWorksBlock: React.FC<HowItWorksProps> = ({
+  openModal,
+  closeModal,
+  children,
+  ...props
+}: HowItWorksProps) => {
   const location = useLocation();
   const background = location.state?.background;
 
@@ -74,14 +80,12 @@ export const HowItWorksBlock: React.FC = ({}) => {
           </svg>
         </div>
       </button>
+
+      {background && (
+        <Modal onClick={closeModal} title="Готовы поднять ваш бизнес на новый уровень?">
+          {children}
+        </Modal>
+      )}
     </div>
   );
-
-  /* 
-    {background && (
-      <Modal onClose={closeModal}>
-        {children}
-      </Modal>
-     )}
-   */
 };
