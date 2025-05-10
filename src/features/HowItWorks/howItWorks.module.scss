@@ -39,20 +39,6 @@
   isolation: isolate;
 }
 
-.button {
-  display: block;
-  border: none;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.buttonContent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-}
-
 /* Для компьютерной версии */
 
 @media (width >= 574px) {
@@ -129,10 +115,6 @@
   .button {
     width: calc(100% - 15.14vw);
     margin: 57px auto 80px;
-    border-radius: 22px;
-    padding: 20px;
-    font-size: 14pt;
-    letter-spacing: 0.2pt;
   }
 
   .textForDesctop {
@@ -203,11 +185,6 @@
   .button {
     width: calc(100% - 30px);
     margin: 41px auto 80px;
-    border-radius: 18px;
-    padding: 16px;
-    font-size: 20px;
-    line-height: 28px;
-    letter-spacing: -0.7px;
   }
 
   .textForDesctop {
