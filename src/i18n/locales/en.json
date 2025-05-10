@@ -59,5 +59,16 @@
     "description1": "We understand that every company is unique, so we work closely with our customers to create customized solutions that meet their needs",
     "description2": "Our team not only develops technologies, but also provides support at every stage of cooperation",
     "description3": "With us you will receive not only a product, but also a partnership based on trust and mutual understanding."
+  },
+  "how": {
+    "titlePartOne": "how",
+    "titlePartTwo": "it",
+    "titlePartThree": "works",
+    "titlePartThreeMobile": "works",
+    "smallText": "find out how it works",
+    "description1": "Our interactive solutions will help your clients choose real estate",
+    "description2": "Create an unforgettable experience for your clients with our virtual tours",
+    "buttonDemo": "Request a Demo",
+    "buttonDemoMobile": "Request a Demo"
   }
 }
