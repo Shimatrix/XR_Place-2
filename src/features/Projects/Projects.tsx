@@ -60,7 +60,7 @@ export const ProjectSlider: React.FC<Props> = ({ projects }) => {
 
       {isGridMode || isMobile ? (
         <a href="" className={styles.viewAllButton}>
-          Смотреть&nbsp;все&nbsp;проекты{' '}
+          {t('projects.seeAllProjects')}
           <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 14 14 1m0 0H1m13 0v13" stroke="#4D4D4D" />
           </svg>
