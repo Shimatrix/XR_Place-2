@@ -24,7 +24,7 @@
   width: 28px;
   height: 19px;
   opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: header-fade-in 0.5s ease-out forwards;
   animation-delay: 1.4s;
 }
 
@@ -77,8 +77,8 @@
 }
 
 .menu > * {
-  opacity: 1;
-  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+  animation: header-fade-in 0.5s ease-out forwards;
 }
 
 .menu > li:nth-child(1) {
@@ -119,8 +119,8 @@
 .language_active {
   font-weight: bold;
   color: #333;
-  opacity: 1;
-  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+  animation: header-fade-in 0.5s ease-out forwards;
   animation-delay: 1s;
 }
 
@@ -129,15 +129,15 @@
   height: 28px;
   background-color: #e0e0e0;
   opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: header-fade-in 0.5s ease-out forwards;
   animation-delay: 1s;
 }
 
 .language_inactive {
   cursor: pointer;
   transition: color 0.3s ease;
-  opacity: 1;
-  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+  animation: header-fade-in 0.5s ease-out forwards;
   animation-delay: 1.2s;
 }
 
@@ -156,12 +156,12 @@
   justify-content: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  opacity: 1;
-  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+  animation: header-fade-in 0.5s ease-out forwards;
   animation-delay: 2.2s;
 }
 
-@keyframes fade-in {
+@keyframes header-fade-in {
   from {
     opacity: 0;
   }
