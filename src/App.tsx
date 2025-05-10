@@ -1,7 +1,9 @@
 import './App.css';
 import { mockProjectsCards } from './assets/mockProjectCards/index';
 import { ProjectSlider } from './features/Projects/Projects';
+import { HowItWorksBlock } from './features/HowItWorks/HowItWorks';
 import { useEffect, useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import Header from './components/Header/Header';
 import BlockClients from './features/BlockClients/BlockClients';
@@ -33,6 +35,14 @@ function App() {
           <WidgetDemo />
           <BlockClients />
           <ProjectSlider projects={mockProjectsCards} />
+          <BrowserRouter>
+            <HowItWorksBlock
+              openModal={() => {
+                console.log('Button Clicked');
+              }}
+              closeModal={() => {}}
+            />
+          </BrowserRouter>
           <Team />
         </>
       )}
