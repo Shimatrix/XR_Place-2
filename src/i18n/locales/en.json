@@ -1,0 +1,74 @@
+{
+  "header": {
+    "about": "About Company",
+    "how_it_works": "How it works",
+    "features": "Features"
+  },
+  "cover": {
+    "text": "Convenient tools for the presentation of objects: create virtual tours with minimal time and resources",
+    "buttonDemo": "Request a Demo"
+  },
+  "philosophy": {
+    "label": "Our philosophy",
+    "titlePartOne": "reliable partner",
+    "titlePartTwo": "business success",
+    "highlightedPhrase": "success",
+    "description": "We offer a unique widget for creating virtual tours that allow your clients to explore objects real estate in an interactive format."
+  },
+  "widget": {
+    "label": "widget",
+    "titleParts": ["what", "can", "widget"],
+    "descriptions": [
+      "Our widget allows you to create an exciting and realistic view of the property",
+      "It helps your clients make informed decisions. We offer easy-to-use solutions that can be easily integrated into your business processes."
+    ],
+    "listItems": [
+      "Panoramic building overview",
+      "Layout and interior design",
+      "Unrestricted movement",
+      "Layout precision",
+      "Interactivity",
+      "Cross-platform compatibility"
+    ],
+    "imageDescriptions": [
+      "Full 360-degree building view with zoom capability for details",
+      "Accurate room layouts with finishing and furniture options",
+      "Unrestricted movement throughout the facility in any direction",
+      "Precise dimensions and proportions matching real-world specifications",
+      "Interactive interior elements functionality",
+      "Operates across all devices and platforms without limitations"
+    ]
+  },
+  "clients": {
+    "label": "Cooperation",
+    "titlePartOne": "clients",
+    "titlePartTwo": "trust us",
+    "highlightedPhrase": "trust",
+    "description": "Our clients are part of our team. You can always count on our support and expertise, because we strive to ensure that our partnership does not leave you indifferent"
+  },
+  "projects": {
+    "label": "Cooperation",
+    "titlePartOne": "Completed",
+    "titlePartTwo": "projects",
+    "highlightedPhrase": "projects"
+  },
+  "aboutUs": {
+    "label": "About us",
+    "titlePartOne": "Business",
+    "titlePartTwo": "team",
+    "description1": "We understand that every company is unique, so we work closely with our customers to create customized solutions that meet their needs",
+    "description2": "Our team not only develops technologies, but also provides support at every stage of cooperation",
+    "description3": "With us you will receive not only a product, but also a partnership based on trust and mutual understanding."
+  },
+  "how": {
+    "titlePartOne": "how",
+    "titlePartTwo": "it",
+    "titlePartThree": "works",
+    "titlePartThreeMobile": "works",
+    "smallText": "find out how it works",
+    "description1": "Our interactive solutions will help your clients choose real estate",
+    "description2": "Create an unforgettable experience for your clients with our virtual tours",
+    "buttonDemo": "Request a Demo",
+    "buttonDemoMobile": "Request a Demo"
+  }
+}

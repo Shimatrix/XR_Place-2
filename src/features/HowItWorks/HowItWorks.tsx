@@ -1,7 +1,7 @@
-'use strict';
 /* Блок "как это работает" с кнопкой CTA */
 //import { Button } from '../../components/Button';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styles from './HowItWorks.module.scss';
 import { Modal } from '../../components/Modal/Modal';
 
@@ -17,6 +17,7 @@ export const HowItWorksBlock: React.FC<HowItWorksProps> = ({
   children,
   ...props
 }: HowItWorksProps) => {
+  const { t } = useTranslation();
   const location = useLocation();
   const background = location.state?.background;
 
@@ -24,7 +25,7 @@ export const HowItWorksBlock: React.FC<HowItWorksProps> = ({
     <div className={`${styles.howItWorksBlock}`}>
       <div className={`${styles.circle}`} />
       <h1 className={`${styles.title}`}>
-        <div>как</div>
+        <div>{t('how.titlePartOne')}</div>
         <div>
           <svg viewBox="0 0 211 106" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="52.6816" cy="53.125" r="52.5" fill="white" />
@@ -42,21 +43,17 @@ export const HowItWorksBlock: React.FC<HowItWorksProps> = ({
             />
           </svg>
         </div>
-        <div>это</div>
-        <div className={`${styles.textForMobile}`}>будет</div>
-        <div className={`${styles.textForDesctop}`}>работает</div>
+        <div>{t('how.titlePartTwo')}</div>
+        <div className={`${styles.textForMobile}`}>{t('how.titlePartThreeMobile')}</div>
+        <div className={`${styles.textForDesctop}`}>{t('how.titlePartThree')}</div>
       </h1>
-      <h3 className={`${styles.heading}`}>узнайте, как это работает</h3>
-      <p className={`${styles.mainText}`}>
-        Наши интерактивные решения помогут вашим клиентам с выбором недвижимости
-      </p>
-      <p className={`${styles.mainText}`}>
-        Создайте незабываемый опыт для своих клиентов с помощью наших виртуальных туров
-      </p>
+      <h3 className={`${styles.heading}`}>{t('how.smallText')}</h3>
+      <p className={`${styles.mainText}`}>{t('how.description1')}</p>
+      <p className={`${styles.mainText}`}>{t('how.description2')}</p>
       <button className={`${styles.button}`} type="button" onClick={openModal}>
         <div className={`${styles.buttonContent}`}>
-          <p className={`${styles.textForMobile}`}>Заказать демо</p>
-          <p className={`${styles.textForDesctop}`}>Назначить демо</p>
+          <p className={`${styles.textForMobile}`}>{t('how.buttonDemoMobile')}</p>
+          <p className={`${styles.textForDesctop}`}>{t('how.buttonDemo')}</p>
           <svg
             width="22"
             height="22"

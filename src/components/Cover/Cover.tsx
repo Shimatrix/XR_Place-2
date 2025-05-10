@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './Cover.module.scss';
 import vector30 from '/src/assets/images/vector_30.svg';
 import arrow from '/src/assets/images/arrow.svg';
 
 const Cover = () => {
   const [showCircle, setShowCircle] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Круг исчезнет через 0.5s (0.2s задержка + 0.3s анимация)
@@ -45,12 +47,9 @@ const Cover = () => {
 
       <div className={`${styles.gridItem} ${styles.item4}`}>
         <div className={styles.contentWrapper}>
-          <div className={styles.cover_text}>
-            Удобные инструменты для презентации объектов: создавайте виртуальные туры с минимальными
-            затратами времени и ресурсов
-          </div>
+          <div className={styles.cover_text}>{t('cover.text')}</div>
           <button className={styles.button}>
-            НАЗНАЧИТЬ ДЕМО
+            {t('cover.buttonDemo')}
             <img className={styles.button_arrow} src={arrow} alt="arrow" />
           </button>
         </div>

@@ -1,14 +1,17 @@
 /* карточки участников + последовательная анимация */
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './team.module.scss';
 
 const Team = () => {
+  const { t } = useTranslation();
+
   return (
     <section className={styles.teamSection}>
       <div className={styles.header}>
-        <span className={styles.sectionLabel}>КТО МЫ</span>
+        <span className={styles.sectionLabel}>{t('aboutUs.label')}</span>
         <h2 className={styles.title}>
-          БИЗНЕС <span>КОМАНДА</span>
+          {t('aboutUs.titlePartOne')} <span>{t('aboutUs.titlePartTwo')}</span>
         </h2>
       </div>
 
@@ -35,27 +38,17 @@ const Team = () => {
 
         {/* <div className={`${styles.textBlock} ${styles.textBlockRight}`}> */}
         <div className={`${styles.paragraph1} ${styles.textBlock} ${styles.textBlockRight}`}>
-          <p>
-            Мы понимаем, что каждая компания уникальна, поэтому мы работаем в тесном сотрудничестве
-            с нашими клиентами, чтобы создавать индивидуальные решения, которые отвечают их
-            потребностям
-          </p>
+          <p>{t('aboutUs.description1')}</p>
         </div>
         <div className={`${styles.paragraph2} ${styles.textBlock} ${styles.textBlockRight}`}>
-          <p>
-            Наша команда не только разрабатывает технологии, но и обеспечивает поддержку на каждом
-            этапе сотрудничества
-          </p>
+          <p>{t('aboutUs.description2')}</p>
         </div>
         {/* </div> */}
       </div>
 
       <div className={styles.row}>
         <div className={`${styles.textBlock} ${styles.textBlockLeft}`}>
-          <p>
-            С нами вы получите не только продукт, но и партнёрство, основанное на доверии и
-            взаимопонимании.
-          </p>
+          <p>{t('aboutUs.description2')}</p>
         </div>
 
         <div className={`${styles.card} ${styles.cardRightAligned}`}>
