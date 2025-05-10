@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './philosophy.module.scss';
 import { BlockLabel } from '@/components/BlockLabel/BlockLabel';
 import BlockTitle from '@/components/BlockTitle/BlockTitle';
@@ -6,11 +7,13 @@ import Typography from '@/components/Typography/Typography';
 import illustration from '@/assets/img/xrp2.png';
 
 const Philosophy: React.FC = () => {
-  const labelText = 'Наша философия';
-  const titleTextPartOne = 'надёжный партнёр';
-  const highlightedPhrase = 'успех';
-  const descriptionText =
-    'Мы предлагаем уникальный виджет для создания виртуальных туров, которые позволяют вашим клиентам исследовать объекты недвижимости в интерактивном формате.';
+  const { t } = useTranslation();
+
+  // const labelText = 'Наша философия';
+  // const titleTextPartOne = 'надёжный партнёр';
+  // const highlightedPhrase = 'успех';
+  // const descriptionText =
+  //   'Мы предлагаем уникальный виджет для создания виртуальных туров, которые позволяют вашим клиентам исследовать объекты недвижимости в интерактивном формате.';
 
   // определяем, мобильная ли сейчас ширина
   const [isMobile, setIsMobile] = useState(false);
@@ -27,11 +30,14 @@ const Philosophy: React.FC = () => {
       <div className={styles.blockContent}>
         {/* Хэдер с лейблом и заголовком */}
         <div className={styles.headerGroup}>
-          <BlockLabel className={styles.label}>{labelText}</BlockLabel>
+          <BlockLabel className={styles.label}>{t('philosophy.label')}</BlockLabel>
           <div className={styles.titleGroup}>
-            <BlockTitle className={styles.titlePart}>{titleTextPartOne}</BlockTitle>
-            <BlockTitle className={styles.titlePart} highlightedPhrase={highlightedPhrase}>
-              успех бизнеса
+            <BlockTitle className={styles.titlePart}>{t('philosophy.titlePartOne')}</BlockTitle>
+            <BlockTitle
+              className={styles.titlePart}
+              highlightedPhrase={t('philosophy.highlightedPhrase')}
+            >
+              {t('philosophy.titlePartTwo')}
             </BlockTitle>
           </div>
         </div>
@@ -46,7 +52,7 @@ const Philosophy: React.FC = () => {
           {/* 2) Описание */}
           <div className={styles.descriptionWrapper}>
             <Typography variant="p" className={styles.description}>
-              {descriptionText}
+              {t('philosophy.description')}
             </Typography>
           </div>
 

@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './Header.module.scss';
 import vector from '/src/images/vector.svg';
 import ellips from '/src/images/ellips_ 497.svg';
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language;
+
   const menuItems = [
-    { id: 1, title: 'О КОМПАНИИ', link: '#about' },
-    { id: 2, title: 'КАК ЭТО РАБОТАЕТ', link: '#how-it-works' },
-    { id: 3, title: 'ВОЗМОЖНОСТИ', link: '#features' },
+    { id: 1, titleKey: 'header.about', link: '#about' },
+    { id: 2, titleKey: 'header.how_it_works', link: '#how-it-works' },
+    { id: 3, titleKey: 'header.features', link: '#features' },
   ];
+
+  const toggleLanguage = () => {
+    const newLanguage = currentLanguage === 'ru' ? 'en' : 'ru';
+    i18n.changeLanguage(newLanguage);
+  };
+
+  const handleLanguageChange = (language: 'ru' | 'en') => {
+    i18n.changeLanguage(language);
+  };
 
   return (
     <header className={styles.header}>
@@ -30,7 +43,7 @@ const Header = () => {
                 )}
                 <li>
                   <a href={item.link} className={styles.menu_link}>
-                    {item.title}
+                    {t(item.titleKey)} {/* Используем t() для перевода */}
                   </a>
                 </li>
               </React.Fragment>
@@ -40,15 +53,32 @@ const Header = () => {
           {/* Правая часть (кнопка и язык) */}
           <div className={styles.right_section}>
             {/* Зелёная круглая кнопка */}
-            <button className={styles.round_button}>
+            <button
+              className={styles.round_button}
+              onClick={toggleLanguage} // Добавляем обработчик клика
+            >
               <img className={styles.ellips} src={ellips} alt="ellips" />
             </button>
 
             {/* Переключатель языка */}
             <div className={styles.language_switcher}>
-              <span className={styles.language_inactive}>EN</span>
+              <span
+                className={
+                  currentLanguage === 'en' ? styles.language_active : styles.language_inactive
+                }
+                onClick={() => handleLanguageChange('en')}
+              >
+                EN
+              </span>
               <div className={styles.language_divider} />
-              <span className={styles.language_active}>RU</span>
+              <span
+                className={
+                  currentLanguage === 'ru' ? styles.language_active : styles.language_inactive
+                }
+                onClick={() => handleLanguageChange('ru')}
+              >
+                RU
+              </span>
             </div>
           </div>
         </nav>

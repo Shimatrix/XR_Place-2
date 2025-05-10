@@ -1,34 +1,40 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './BlockClients.module.scss';
 import { BlockLabel } from '@/components/BlockLabel/BlockLabel';
 import BlockTitle from '@/components/BlockTitle/BlockTitle';
 import Typography from '@/components/Typography/Typography';
 
 const BlockClients = () => {
-  const labelText = 'Сотрудничество';
-  const titleTextPartOne = 'клиенты';
-  const titleTextPartTwo = 'нам доверяют';
-  const highlightedPhrase = 'доверяют';
-  const descriptionText =
-    'Наши клиенты — это часть нашей команды. С нами вы всегда можете рассчитывать на поддержку \nи экспертизу, ведь мы стремимся к тому, чтобы наше партнёрство не оставило вас равнодушными';
+  const { t } = useTranslation();
+
+  // const labelText = 'Сотрудничество';
+  // const titleTextPartOne = 'клиенты';
+  // const titleTextPartTwo = 'нам доверяют';
+  // const highlightedPhrase = 'доверяют';
+  // const descriptionText =
+  //   'Наши клиенты — это часть нашей команды. С нами вы всегда можете рассчитывать на поддержку \nи экспертизу, ведь мы стремимся к тому, чтобы наше партнёрство не оставило вас равнодушными';
 
   return (
     <div className={styles.blockContainer}>
       <div className={styles.blockContent}>
         <div className={styles.headerGroup}>
-          <BlockLabel className={styles.label}>{labelText}</BlockLabel>
+          <BlockLabel className={styles.label}>{t('clients.label')}</BlockLabel>
 
           <div className={styles.titleGroup}>
-            <BlockTitle className={styles.titlePart}>{titleTextPartOne}</BlockTitle>
-            <BlockTitle className={styles.titlePart} highlightedPhrase={highlightedPhrase}>
-              {titleTextPartTwo}
+            <BlockTitle className={styles.titlePart}>{t('clients.titlePartOne')}</BlockTitle>
+            <BlockTitle
+              className={styles.titlePart}
+              highlightedPhrase={t('clients.highlightedPhrase')}
+            >
+              {t('clients.titlePartTwo')}
             </BlockTitle>
           </div>
         </div>
 
         <div className={styles.descriptionWrapper}>
           <Typography variant="p" className={styles.description}>
-            {descriptionText}
+            {t('clients.description')}
           </Typography>
         </div>
 
