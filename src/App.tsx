@@ -11,6 +11,7 @@ import Cover from './components/Cover/Cover';
 import Philosophy from '@/features/Philosophy/Philosophy';
 import { WidgetDemo } from './features/WidgetDemo/WidgetDemo';
 import Team from './features/Team/Team';
+import { FAQ } from './features/FAQ/FAQ';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +45,7 @@ function App() {
             />
           </BrowserRouter>
           <Team />
+          <FAQ />
         </>
       )}
     </>
