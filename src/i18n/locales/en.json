@@ -50,7 +50,8 @@
     "label": "Cooperation",
     "titlePartOne": "Completed",
     "titlePartTwo": "projects",
-    "highlightedPhrase": "projects"
+    "highlightedPhrase": "projects",
+    "seeAllProjects": "See all projects"
   },
   "aboutUs": {
     "label": "About us",
