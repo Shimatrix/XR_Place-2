@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './Header.module.scss';
-import vector from '/src/assets/images/vector.svg';
+import vector from '/src/assets/images/frame_49.svg';
 import ellips from '/src/assets/images/ellips_ 497.svg';
 import burger_menu from '/src/assets/images/burger_menu.svg';
 
