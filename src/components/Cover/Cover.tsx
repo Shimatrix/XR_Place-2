@@ -35,14 +35,15 @@ const Cover = () => {
       </div>
 
       <div className={`${styles.gridItem} ${styles.item2}`}>
+        <div className={styles.image_circle_mobile} />
         <div className={styles.image_square} />
         <div className={styles.arrow}>
           <img className={styles.arrowhead} src={vector30} alt="Arrow icon" />
         </div>
       </div>
 
-      <div className={`${styles.gridItem} ${styles.item3}`}>
-        <div className={styles.item3_text}>place for business</div>
+      <div className={`${styles.gridItem} ${styles.item7}`}>
+        <div className={styles.item7_text}>place for business</div>
       </div>
 
       <div className={`${styles.gridItem} ${styles.item4}`}>

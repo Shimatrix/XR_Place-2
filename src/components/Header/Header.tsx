@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './Header.module.scss';
-import vector from '/src/images/vector.svg';
-import ellips from '/src/images/ellips_ 497.svg';
+import vector from '/src/assets/images/vector.svg';
+import ellips from '/src/assets/images/ellips_ 497.svg';
+import burger_menu from '/src/assets/images/burger_menu.svg';
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -25,15 +26,17 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.container}>
-        <nav className={styles.nav}>
+      {/* <div className={styles.container}> */}
+
           {/* SVG логотип слева */}
           <div className={styles.logo}>
             <img className={styles.vector} src={vector} alt="vector" />
           </div>
 
           {/* Основное меню с разделителями */}
+          <nav className={styles.nav}>
           <ul className={styles.menu}>
+
             {menuItems.map((item, index) => (
               <React.Fragment key={item.id}>
                 {index > 0 && (
@@ -49,6 +52,8 @@ const Header = () => {
               </React.Fragment>
             ))}
           </ul>
+          </nav>
+
 
           {/* Правая часть (кнопка и язык) */}
           <div className={styles.right_section}>
@@ -80,9 +85,12 @@ const Header = () => {
                 RU
               </span>
             </div>
+            <button className={styles.burger_menu}>
+              <img className={styles.burger_menu} src={burger_menu} alt="burger_menu" />
+            </button>
           </div>
-        </nav>
-      </div>
+
+      {/* </div> */}
     </header>
   );
 };
