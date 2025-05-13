@@ -71,5 +71,34 @@
     "description2": "Create an unforgettable experience for your clients with our virtual tours",
     "buttonDemo": "Request a Demo",
     "buttonDemoMobile": "Request a Demo"
+  },
+  "faq": {
+    "label": "Questions",
+    "title": {
+      "part1": "Questions",
+      "part2": "to our team"
+    },
+    "items": [
+      {
+        "question": "How to install the widget on my site?",
+        "answer": "Widget installation is simple and only takes a few steps. After purchase, you'll receive integration instructions and access to our technical support team to assist you at every stage."
+      },
+      {
+        "question": "Can I customize the widget for my brand?",
+        "answer": "Widget installation is simple and only takes a few steps. After purchase, you'll receive integration instructions and access to our technical support team to assist you at every stage."
+      },
+      {
+        "question": "How can I create content for virtual tours?",
+        "answer": "Widget installation is simple and only takes a few steps. After purchase, you'll receive integration instructions and access to our technical support team to assist you at every stage."
+      },
+      {
+        "question": "Is there a trial period available?",
+        "answer": "Widget installation is simple and only takes a few steps. After purchase, you'll receive integration instructions and access to our technical support team to assist you at every stage."
+      },
+      {
+        "question": "How can I check the widget cost?",
+        "answer": "Widget installation is simple and only takes a few steps. After purchase, you'll receive integration instructions and access to our technical support team to assist you at every stage."
+      }
+    ]
   }
 }
