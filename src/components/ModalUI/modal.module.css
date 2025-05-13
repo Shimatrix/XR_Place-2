@@ -21,3 +21,7 @@
     width: 34.5%;
     padding: 60px 40px;
 }
+
+.modal-hidden {
+    display: none;
+}
