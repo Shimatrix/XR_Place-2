@@ -1,1 +1,71 @@
 /* Стили аккордеона */
+.faqSection {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding-top: 9.375rem; //150px
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2.5rem; // 40px
+  text-transform: uppercase;
+  max-width: 57.75rem; // 924px
+  gap: 11.75rem; // 188px
+}
+
+.teamSection {
+  max-width: 90rem; // 1440px
+  margin: 0;
+  padding-top: 9.375rem; // 150px
+  font-family: Inter, sans-serif;
+}
+
+.sectionLabel {
+  display: inline-block;
+  border: 0.0625rem solid #055042; // 1px
+  border-radius: 1.25rem; // 20px
+  padding: 0.4rem 1.2rem;
+  color: #055042;
+  font-size: 1.25rem; // 20px
+  text-transform: uppercase;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.title {
+  font-size: 4rem; // 64px
+  font-weight: 300;
+  color: #2d2d2d;
+  text-align: left;
+
+  span {
+    color: #055042;
+  }
+}
+
+@media (width <= 360px) {
+  .faqSection {
+    max-width: 19.375rem; // 310px
+    padding-top: 3.75rem; // 60px
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1.875rem; // 30px
+    gap: 1.25rem; // 20px
+  }
+
+  .sectionLabel {
+    padding: 0.625rem 1rem; // 10px 16px
+    font-size: 1rem; // 16px
+  }
+
+  .title {
+    font-size: 1.5rem; // 24px
+    font-weight: 300;
+    text-align: left;
+    letter-spacing: -1.8px;
+  }
+}
