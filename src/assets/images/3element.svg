@@ -1,0 +1,15 @@
+<svg 
+    width="68" 
+    height="34" 
+    viewBox="0 0 68 34" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path 
+    class="3element"
+    fill-rule="evenodd" 
+    clip-rule="evenodd" 
+    d="M34 17H0c0 9.389 7.611 17 17 17s17-7.611 17-17ZM34 17h34c0-9.389-7.611-17-17-17S34 7.611 34 17Z" 
+    fill="#7C7C7C"
+    />
+</svg>

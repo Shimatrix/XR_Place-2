@@ -1,0 +1,180 @@
+// PartnersCard.module.scss
+@use '@/styles/globals' as *;
+
+.clientBlockCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 колонки
+  grid-template-rows: repeat(6, 1fr); // 6 строчек
+  gap: 10px;
+  padding: 10px;
+  height: 100%;
+}
+
+.cardWrapper {
+  display: grid;
+
+  &:nth-child(1) {
+    grid-row: span 2 / span 2;
+  }
+
+  &:nth-child(2) {
+    grid-row: span 4 / span 4;
+    grid-column-start: 1;
+    grid-row-start: 3;
+  }
+
+  &:nth-child(3) {
+    grid-row: span 4 / span 4;
+    grid-column-start: 2;
+    grid-row-start: 1;
+  }
+
+  &:nth-child(4) {
+    grid-row: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 5;
+  }
+
+  &:nth-child(5) {
+    grid-row: span 3 / span 3;
+    grid-column-start: 3;
+    grid-row-start: 1;
+  }
+
+  &:nth-child(6) {
+    grid-row: span 3 / span 3;
+    grid-column-start: 3;
+    grid-row-start: 4;
+  }
+}
+
+.cardImage {
+  margin-left: auto;
+  color: $color-dark-gray;
+}
+
+.cardImage svg {
+  fill: $color-gray;
+}
+
+.modalImage svg {
+  fill: $color-blue;
+}
+
+.clientCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  border: 0.5px solid #656565;
+  border-radius: $radius-xl;
+  background-color: $color-white;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background-color: $color-eerie-black;
+    border: 0.5px solid $color-gray;
+
+    h3 {
+      color: $color-lilac-gray;
+    }
+
+    svg {
+      fill: $color-blue;
+    }
+
+    .cardImage {
+      color: $color-blue;
+    }
+  }
+}
+
+.cardTitle {
+  font-family: $font-main;
+  font-weight: 400;
+  font-size: 20px;
+  color: $color-dark-gray;
+  line-height: $line-height-base;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgb(0 0 0 / 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-eerie-black;
+  padding: 30px;
+  gap: 10px;
+  border-radius: $radius-xl;
+  text-align: left;
+  max-width: 412px;
+  width: 100%;
+}
+
+.modalImage {
+  max-width: 100%;
+  margin-left: auto;
+  color: $color-blue;
+}
+
+.percent {
+  font-family: $font-main;
+  font-weight: 300;
+  font-size: $font-size-title;
+  line-height: 100%;
+  text-transform: uppercase;
+  text-align: left;
+  color: $color-white;
+}
+
+.description {
+  font-family: $font-main;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: $line-height-base;
+  color: $color-lilac-gray;
+}
+
+// Мобильная версия
+@media (width < 769px) {
+  .clientBlockCards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .clientCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 24px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  svg {
+    max-height: 40px;
+    width: 40px;
+  }
+
+  .percent {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+}
