@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import Header from './components/Header/Header';
+import { BlockLabel } from './components/BlockLabel/BlockLabel';
 import BlockClients from './features/BlockClients/BlockClients';
 import Cover from './components/Cover/Cover';
 import Philosophy from '@/features/Philosophy/Philosophy';
