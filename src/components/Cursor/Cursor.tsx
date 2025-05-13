@@ -28,11 +28,9 @@ const Cursor: React.FC = () => {
       requestAnimationFrame(animate);
     };
 
-    // При наведении на любой элемент смотрим, интерактивен ли он
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      // критерий кликабельности: тэг <a>, <button>, элементы с role="button",
-      // input[type=button|submit], а также любой с обработчиком onclick
+
       if (
         target.closest(
           'a, button, [role="button"], input[type="button"], input[type="submit"], [onclick]',

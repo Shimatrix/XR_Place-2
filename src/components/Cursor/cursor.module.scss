@@ -1,17 +1,12 @@
-/* cursor.module.scss */
-
 .cursorSmall,
 .cursorBig {
   position: fixed !important;
   top: 0;
   left: 0;
   pointer-events: none;
-
-  /* Огромный z-index, чтобы перебить любые ваши компоненты */
   z-index: 9999;
 }
 
-/* МАЛЕНЬКИЙ КУРСОР */
 .cursorSmall {
   width: 10px;
   height: 10px;
@@ -25,12 +20,12 @@
     height 0.2s ease;
 }
 
-.cursorSmallHover {
+/* .cursorSmallHover {
   width: 16px;
   height: 16px;
   background-color: #055042;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
+} */
 
 .cursorBig {
   width: 48px;
@@ -45,8 +40,8 @@
     height 0.2s ease;
 }
 
-.cursorBigHover {
+/* .cursorBigHover {
   width: 64px;
   height: 64px;
   transform: translate(-50%, -50%) scale(1.2);
-}
+} */
