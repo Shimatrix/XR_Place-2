@@ -11,6 +11,7 @@ import Cover from './components/Cover/Cover';
 import Philosophy from '@/features/Philosophy/Philosophy';
 import { WidgetDemo } from './features/WidgetDemo/WidgetDemo';
 import Team from './features/Team/Team';
+import Cursor from '@/components/Cursor/Cursor';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,6 +30,7 @@ function App() {
         <Loader />
       ) : (
         <>
+          <Cursor />
           <Header />
           <Cover />
           <Philosophy />
