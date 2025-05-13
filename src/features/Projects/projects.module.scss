@@ -1,4 +1,4 @@
-.grid {
+.projectsWrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
@@ -26,19 +26,10 @@
 .header {
   display: flex;
   align-items: center;
+  gap: 200px;
 
   .decoration {
-    font-family: Helvetica, sans-serif;
-    color: $color-green;
-    padding: 10px 16px;
-    border: 1px solid $color-green;
-    border-radius: 30px;
-    font-weight: 300;
-    font-size: 20px;
-    text-align: center;
-    text-transform: uppercase;
     align-self: flex-start;
-    margin-right: 200px;
   }
 }
 
@@ -108,7 +99,7 @@
 }
 
 @media (width < 1000px) {
-  .grid {
+  .projectsWrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;

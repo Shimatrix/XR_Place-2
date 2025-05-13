@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
@@ -14,9 +14,12 @@
     "commit": "cz"
   },
   "dependencies": {
-    "prop-types": "15.8.1",
+    "i18next": "25.1.2",
+    "i18next-browser-languagedetector": "8.1.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-i18next": "15.5.1",
+    "react-router-dom": "7.5.3"
   },
   "devDependencies": {
     "@eslint/js": "9.25.1",
@@ -24,9 +27,10 @@
     "@types/node": "22.15.2",
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
+    "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "8.31.1",
     "@typescript-eslint/parser": "8.31.1",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "4.4.1",
     "babel-plugin-macros": "3.1.0",
     "commitizen": "4.3.1",
     "cz-conventional-changelog": "3.3.0",
@@ -43,7 +47,7 @@
     "stylelint-config-standard-scss": "14.0.0",
     "terser": "5.39.0",
     "typescript": "~5.7.2",
-    "vite": "^6.3.1"
+    "vite": "6.3.4"
   },
   "config": {
     "commitizen": {
