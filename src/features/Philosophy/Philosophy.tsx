@@ -9,12 +9,6 @@ import illustration from '@/assets/img/xrp2.png';
 const Philosophy: React.FC = () => {
   const { t } = useTranslation();
 
-  // const labelText = 'Наша философия';
-  // const titleTextPartOne = 'надёжный партнёр';
-  // const highlightedPhrase = 'успех';
-  // const descriptionText =
-  //   'Мы предлагаем уникальный виджет для создания виртуальных туров, которые позволяют вашим клиентам исследовать объекты недвижимости в интерактивном формате.';
-
   // определяем, мобильная ли сейчас ширина
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
