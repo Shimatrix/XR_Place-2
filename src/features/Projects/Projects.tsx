@@ -1,8 +1,10 @@
 /* Логика выбора slider/grid по кол-ву проектов */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ProjectCard } from './ProjectCard';
-import styles from './Projects.module.scss';
+import styles from './projects.module.scss';
 import { Button } from '@/components/Button/Button';
+import { BlockLabel } from '@/components/BlockLabel/BlockLabel';
 
 interface Project {
   title: string;
@@ -16,7 +18,9 @@ interface Props {
 
 export const ProjectSlider: React.FC<Props> = ({ projects }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const isMobile = window.innerWidth < 767;
+  const [isMobile, setIsMobile] = useState(false);
+  const { t } = useTranslation();
+
   const isGridMode = projects.length >= 4;
 
   projects = isMobile ? projects.slice(0, 3) : projects;
@@ -29,20 +33,33 @@ export const ProjectSlider: React.FC<Props> = ({ projects }) => {
     setCurrentIndex((prev) => (prev + 1) % projects.length);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 769);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div
       className={`${styles.wrapper} ${isGridMode ? styles.gridMode : ''} ${isMobile ? styles.mobileMode : ''}`}
     >
       <div className={styles.header}>
-        <div className={styles.decoration}>Сотрудничество</div>
+        <BlockLabel className={styles.decoration}>{t('projects.label')}</BlockLabel>
         <h2 className={styles.heading}>
-          Реализованные <span className={styles.accent}>проекты</span>
+          {t('projects.titlePartOne')}{' '}
+          <span className={styles.accent}>{t('projects.titlePartTwo')}</span>
         </h2>
       </div>
 
       {isGridMode || isMobile ? (
         <a href="" className={styles.viewAllButton}>
-          Смотреть&nbsp;все&nbsp;проекты{' '}
+          {t('projects.seeAllProjects')}
           <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 14 14 1m0 0H1m13 0v13" stroke="#4D4D4D" />
           </svg>
@@ -56,7 +73,7 @@ export const ProjectSlider: React.FC<Props> = ({ projects }) => {
 
       {isGridMode || isMobile ? (
         <div>
-          <div className={styles.grid}>
+          <div className={styles.projectsWrapper}>
             {projects.map((project, i) => (
               <ProjectCard
                 key={i}

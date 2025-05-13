@@ -1,15 +1,11 @@
 .header {
   background-color: #fff;
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
   padding: 15px 0;
   font-family: Arial, sans-serif;
   max-width: 1440px;
   max-height: 48px;
-}
-
-.container {
-  width: 100%;
-  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav {
@@ -19,11 +15,11 @@
 }
 
 .logo {
-  margin-right: 30px;
-  width: 28px;
-  height: 19px;
+  margin-left: 45px;
+  width: 38px;
+  height: 25px;
   opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: header-fade-in 0.5s ease-out forwards;
   animation-delay: 1.4s;
 }
 
@@ -54,7 +50,7 @@
 }
 
 .menu_link::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 0;
   height: 2px;
@@ -72,12 +68,12 @@
   width: 2px;
   height: 28px;
   background-color: #e0e0e0;
-  margin: 0 15px;
+  margin: 0 12px;
 }
 
 .menu > * {
   opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: header-fade-in 0.5s ease-out forwards;
 }
 
 .menu > li:nth-child(1) {
@@ -104,13 +100,12 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-left: 30px;
 }
 
 .language_switcher {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   font-size: 14px;
   color: #555;
 }
@@ -119,7 +114,7 @@
   font-weight: bold;
   color: #333;
   opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: header-fade-in 0.5s ease-out forwards;
   animation-delay: 1s;
 }
 
@@ -128,7 +123,7 @@
   height: 28px;
   background-color: #e0e0e0;
   opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: header-fade-in 0.5s ease-out forwards;
   animation-delay: 1s;
 }
 
@@ -136,7 +131,7 @@
   cursor: pointer;
   transition: color 0.3s ease;
   opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: header-fade-in 0.5s ease-out forwards;
   animation-delay: 1.2s;
 }
 
@@ -156,15 +151,86 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: header-fade-in 0.5s ease-out forwards;
   animation-delay: 2.2s;
 }
 
-@keyframes fadeIn {
+.burger_menu {
+  display: none;
+}
+
+@keyframes header-fade-in {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
+  }
+}
+
+@media (width <= 1023px) {
+  .header .menu .menu_link {
+    font-size: 11px;
+  }
+
+  .header .language_switcher {
+    font-size: 11px;
+  }
+}
+
+@media (width <= 768px) {
+  .header {
+    position: relative;
+    justify-content: space-between;
+    padding: 15px 0;
+  }
+
+  .language_switcher {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .logo {
+    margin-left: 0;
+    z-index: 10;
+    width: 40px;
+    height: 28px;
+    margin-top: 3px;
+  }
+
+  .right_section {
+    gap: 0;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .round_button {
+    display: none;
+  }
+
+  .burger_menu {
+    display: block;
+    background-color: transparent;
+    border: none;
+    margin-top: 7px;
+  }
+
+  .header .language_switcher {
+    font-family: Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #2d2d2d;
+    font-size: 20px;
+    margin-top: 7px;
   }
 }

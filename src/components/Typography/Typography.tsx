@@ -3,7 +3,7 @@ import styles from './Typography.module.scss';
 
 type TypographyProps = {
   variant: 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span';
-  children: string;
+  children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
 };
