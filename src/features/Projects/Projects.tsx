@@ -22,7 +22,6 @@ export const ProjectSlider: React.FC<Props> = ({ projects }) => {
   const { t } = useTranslation();
 
   const isGridMode = projects.length >= 4;
-  // const labelText = 'Сотрудничество';
 
   projects = isMobile ? projects.slice(0, 3) : projects;
 
