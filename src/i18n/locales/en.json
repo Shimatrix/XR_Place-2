@@ -100,5 +100,37 @@
         "answer": "Widget installation is simple and only takes a few steps. After purchase, you'll receive integration instructions and access to our technical support team to assist you at every stage."
       }
     ]
+  },
+   "footer": {
+    "contacts": {
+      "title": "Contacts",
+      "address": {
+        "line1": "Melikishvili str. 92/16",
+        "line2": "6004 Batumi, Georgia"
+      },
+      "copyright": "Copyright ©{{year}} XR Place"
+    },
+    "menu": {
+      "title": "Menu",
+      "items": [
+        "About Company",
+        "How it works",
+        "Features",
+        "Schedule Demo"
+      ]
+    },
+    "social": {
+      "title": "Social Media",
+      "email": "hello@xrlace.io",
+      "links": {
+        "instagram": "Instagram",
+        "linkedin": "LinkedIn"
+      }
+    },
+    "backToTop": "BACK TO TOP↗",
+    "mobile": {
+      "logoText": "xr place",
+      "demoButton": "schedule demo"
+    }
   }
 }
