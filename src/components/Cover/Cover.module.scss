@@ -144,7 +144,6 @@
 .title_mask {
   background: linear-gradient(to bottom, #056654, #000);
   background-clip: text;
-  background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -152,7 +151,6 @@
 
 .cover_title_mask {
   background: linear-gradient(to bottom, #056654, #000);
-  background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
@@ -578,10 +576,10 @@
   }
 
   .arrow {
-    display: none;
     left: 50%;
     transform: translateX(-50%);
     bottom: 10px;
+    display: none;
   }
 
   .image_square {
