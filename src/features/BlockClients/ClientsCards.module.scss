@@ -72,7 +72,7 @@
   transition: all 0.5s ease;
 
   &:hover {
-    background-color: $color-eerie-black;
+    background-color: $color-deep-black;
     border: 0.5px solid $color-gray;
 
     h3 {
@@ -111,7 +111,7 @@
 .modalContent {
   display: flex;
   flex-direction: column;
-  background-color: $color-eerie-black;
+  background-color: $color-deep-black;
   padding: 30px;
   gap: 10px;
   border-radius: $radius-xl;
