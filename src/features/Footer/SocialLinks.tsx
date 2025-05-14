@@ -1,11 +1,25 @@
 /* Компонент иконок социальных сетей */
 import styles from './footer.module.scss';
 
+const SocialIcon = ({
+  href,
+  title,
+  children,
+}: {
+  href: string;
+  title: string;
+  children: React.ReactNode;
+}) => (
+  <a href={href} title={title} target="_blank" rel="noreferrer">
+    {children}
+  </a>
+);
+
 const SocialLinks = () => {
   return (
     <div className={styles.socialIcons}>
-      {/* Почта */}
-      <a href="mailto:hello@xrlace.io" target="_blank" rel="noreferrer">
+      <SocialIcon href="mailto:hello@xrlace.io" title="Email">
+        {/* SVG иконка email */}
         <svg
           width="30"
           height="30"
@@ -27,10 +41,10 @@ const SocialLinks = () => {
             </clipPath>
           </defs>
         </svg>
-      </a>
+      </SocialIcon>
 
-      {/* LinkedIn */}
-      <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+      <SocialIcon href="https://linkedin.com" title="LinkedIn">
+        {/* SVG иконка LinkedIn */}
         <svg
           width="30"
           height="30"
@@ -43,10 +57,10 @@ const SocialLinks = () => {
             fill="#D9D9D9"
           />
         </svg>
-      </a>
+      </SocialIcon>
 
-      {/* Instagram */}
-      <a href="https://instagram.com" target="_blank" rel="noreferrer">
+      <SocialIcon href="https://instagram.com" title="Instagram">
+        {/* SVG иконка Instagram */}
         <svg
           width="30"
           height="30"
@@ -67,7 +81,7 @@ const SocialLinks = () => {
             fill="#D9D9D9"
           />
         </svg>
-      </a>
+      </SocialIcon>
     </div>
   );
 };

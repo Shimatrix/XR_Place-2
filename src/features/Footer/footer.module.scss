@@ -12,13 +12,12 @@
   color: white;
   position: relative;
   overflow: hidden;
-  min-height: 39.75rem; // 636px
-  margin: 0 -6.25rem; // -100px
+  min-height: 636px;
+  margin: 0;
   font-family: Inter, sans-serif;
   font-weight: 400;
 
   @media (width <= 768px) {
-    margin: -1.5625rem; // -25px
     background: #191919;
     min-height: auto;
 
@@ -33,7 +32,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 13.875rem; // 222px
+    height: 222px;
     background: url('/public/mockImg/Footer/xr place.svg') no-repeat bottom center;
     background-size: contain;
     pointer-events: none;
@@ -42,14 +41,14 @@
 
 .container {
   display: flex;
-  padding: 6.25rem 6.125rem; // 100px 98px
+  padding: 100px 98px;
   justify-content: space-between;
 }
 
 .containerColumn {
   display: flex;
   flex-direction: row;
-  gap: 7.5rem; // 120px
+  gap: 120px;
 }
 
 .column {
@@ -61,53 +60,53 @@
 }
 
 .contacts {
-  margin-bottom: 1rem; // 16px
-  font-size: 1.25rem; // 20px
-  min-width: 19.125rem; // 306px
-  letter-spacing: -0.075rem; // -1.2px
+  margin-bottom: 16px;
+  font-size: 20px;
+  min-width: 306px;
+  letter-spacing: -1.2px;
   text-transform: uppercase;
 }
 
 .contactText {
   color: #c3c3c3cc;
-  font-size: 1rem; // 16px
+  font-size: 16px;
   opacity: 0.8;
-  letter-spacing: -0.03rem; // -0.48px
+  letter-spacing: -0.48px;
 }
 
 .menu {
-  margin-bottom: 1.25rem; // 20px
-  font-size: 1.25rem; // 20px
-  letter-spacing: -0.075rem; // -1.2px
+  margin-bottom: 20px;
+  font-size: 20px;
+  letter-spacing: -1.2px;
   text-transform: uppercase;
 }
 
 .menuList li {
-  margin-bottom: 1rem; // 16px
-  font-size: 1rem; // 16px
+  margin-bottom: 16px;
+  font-size: 16px;
   color: #eee;
-  letter-spacing: -0.03rem; // -0.48px
+  letter-spacing: -0.48px;
   line-height: 1;
 }
 
 .social {
-  margin-bottom: 1.375rem; // 22px
-  font-size: 1.25rem; // 20px
-  letter-spacing: -0.075rem; // -1.2px
+  margin-bottom: 22px;
+  font-size: 20px;
+  letter-spacing: -1.2px;
   text-transform: uppercase;
 }
 
 .socialList li {
-  margin-bottom: 1.375rem; // 22px
-  font-size: 1.125rem; // 18px
+  margin-bottom: 22px;
+  font-size: 18px;
   font-weight: 300;
-  letter-spacing: -0.0338rem; // -0.54px
+  letter-spacing: -0.54px;
   line-height: 1.2;
 }
 
 .toTop {
   color: #4d4d4d;
-  font-size: 1.25rem; // 20px
+  font-size: 20px;
 }
 
 .mobileFooter {
@@ -122,60 +121,60 @@
   .logoBlock {
     display: flex;
     justify-content: space-between;
-    margin: 3.75rem 1.25rem 1.25rem; // 60px 20px 20px
+    margin: 60px 20px 20px;
     align-items: center;
   }
 
   .logoIcon {
     display: flex;
-    gap: 0.5625rem; // 9px
+    gap: 9px;
     align-items: center;
   }
 
   .logoText {
-    font-size: 2.25rem; // 36px
+    font-size: 36px;
     text-transform: uppercase;
-    letter-spacing: -0.135rem; // -2.16px
-    line-height: 2.25rem; // 36px
+    letter-spacing: -2.16px;
+    line-height: 36px;
     color: #fff;
   }
 
   .address {
     color: #878787cc;
-    font-size: 1rem; // 16px
-    letter-spacing: 0.01rem; // 0.16px
-    gap: 0.5rem; // 8px
+    font-size: 16px;
+    letter-spacing: 0.16px;
+    gap: 8px;
     text-align: left;
-    padding-left: 1.25rem; // 20px
-    margin-bottom: 3.375rem; // 54px
+    padding-left: 20px;
+    margin-bottom: 54px;
   }
 
   .menu {
     display: flex;
-    font-size: 1.25rem; // 20px
+    font-size: 20px;
     line-height: 1.2;
-    letter-spacing: -0.0037rem; // -0.06em
+    letter-spacing: -0.06em;
     text-transform: uppercase;
     text-align: left;
-    padding-left: 1.25rem; // 20px
-    margin-bottom: 1.875rem; // 30px
+    padding-left: 20px;
+    margin-bottom: 30px;
 
     li {
       list-style-type: none;
-      margin-bottom: 1.25rem; // 20px
+      margin-bottom: 20px;
     }
   }
 
   .social {
-    margin-bottom: 2.5rem; // 40px
+    margin-bottom: 40px;
   }
 
   .socialIcons {
-    max-width: 10.625rem; // 170px
-    padding-left: 1.25rem; // 20px
+    max-width: 170px;
+    padding-left: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2.5rem; // 40px
+    margin-bottom: 40px;
   }
 }
