@@ -1,1 +1,180 @@
 /* Стили текста и ссылок */
+.desktopFooter {
+  display: block;
+
+  @media (width <= 768px) {
+    display: none;
+  }
+}
+
+.footer {
+  background: #171717;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  min-height: 636px;
+  margin: 0;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+
+  @media (width <= 768px) {
+    background: #191919;
+    min-height: auto;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 222px;
+    background: url('/public/mockImg/Footer/xr place.svg') no-repeat bottom center;
+    background-size: contain;
+    pointer-events: none;
+  }
+}
+
+.container {
+  display: flex;
+  padding: 100px 98px;
+  justify-content: space-between;
+}
+
+.containerColumn {
+  display: flex;
+  flex-direction: row;
+  gap: 120px;
+}
+
+.column {
+  text-align: left;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.contacts {
+  margin-bottom: 16px;
+  font-size: 20px;
+  min-width: 306px;
+  letter-spacing: -1.2px;
+  text-transform: uppercase;
+}
+
+.contactText {
+  color: #c3c3c3cc;
+  font-size: 16px;
+  opacity: 0.8;
+  letter-spacing: -0.48px;
+}
+
+.menu {
+  margin-bottom: 20px;
+  font-size: 20px;
+  letter-spacing: -1.2px;
+  text-transform: uppercase;
+}
+
+.menuList li {
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #eee;
+  letter-spacing: -0.48px;
+  line-height: 1;
+}
+
+.social {
+  margin-bottom: 22px;
+  font-size: 20px;
+  letter-spacing: -1.2px;
+  text-transform: uppercase;
+}
+
+.socialList li {
+  margin-bottom: 22px;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: -0.54px;
+  line-height: 1.2;
+}
+
+.toTop {
+  color: #4d4d4d;
+  font-size: 20px;
+}
+
+.mobileFooter {
+  display: none;
+
+  @media (width <= 768px) {
+    display: block;
+  }
+}
+
+@media (width <= 768px) {
+  .logoBlock {
+    display: flex;
+    justify-content: space-between;
+    margin: 60px 20px 20px;
+    align-items: center;
+  }
+
+  .logoIcon {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+  }
+
+  .logoText {
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: -2.16px;
+    line-height: 36px;
+    color: #fff;
+  }
+
+  .address {
+    color: #878787cc;
+    font-size: 16px;
+    letter-spacing: 0.16px;
+    gap: 8px;
+    text-align: left;
+    padding-left: 20px;
+    margin-bottom: 54px;
+  }
+
+  .menu {
+    display: flex;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+    text-align: left;
+    padding-left: 20px;
+    margin-bottom: 30px;
+
+    li {
+      list-style-type: none;
+      margin-bottom: 20px;
+    }
+  }
+
+  .social {
+    margin-bottom: 40px;
+  }
+
+  .socialIcons {
+    max-width: 170px;
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+}

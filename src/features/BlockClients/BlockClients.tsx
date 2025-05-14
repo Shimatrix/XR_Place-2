@@ -4,6 +4,7 @@ import styles from './BlockClients.module.scss';
 import { BlockLabel } from '@/components/BlockLabel/BlockLabel';
 import BlockTitle from '@/components/BlockTitle/BlockTitle';
 import Typography from '@/components/Typography/Typography';
+import ClientBlockCards from './ClientsCards';
 
 const BlockClients = () => {
   const { t } = useTranslation();
@@ -38,7 +39,9 @@ const BlockClients = () => {
           </Typography>
         </div>
 
-        <div className={styles.clientBlockCards} />
+        <div className={styles.clientBlockCards}>
+          <ClientBlockCards />
+        </div>
       </div>
     </div>
   );
