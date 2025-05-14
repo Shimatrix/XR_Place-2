@@ -28,67 +28,61 @@ const Header = () => {
     <header className={styles.header}>
       {/* <div className={styles.container}> */}
 
-          {/* SVG логотип слева */}
-          <div className={styles.logo}>
-            <img className={styles.vector} src={vector} alt="vector" />
-          </div>
+      {/* SVG логотип слева */}
+      <div className={styles.logo}>
+        <img className={styles.vector} src={vector} alt="vector" />
+      </div>
 
-          {/* Основное меню с разделителями */}
-          <nav className={styles.nav}>
-          <ul className={styles.menu}>
-
-            {menuItems.map((item, index) => (
-              <React.Fragment key={item.id}>
-                {index > 0 && (
-                  <li className={styles.menu_divider}>
-                    <div className={styles.divider} />
-                  </li>
-                )}
-                <li>
-                  <a href={item.link} className={styles.menu_link}>
-                    {t(item.titleKey)} {/* Используем t() для перевода */}
-                  </a>
+      {/* Основное меню с разделителями */}
+      <nav className={styles.nav}>
+        <ul className={styles.menu}>
+          {menuItems.map((item, index) => (
+            <React.Fragment key={item.id}>
+              {index > 0 && (
+                <li className={styles.menu_divider}>
+                  <div className={styles.divider} />
                 </li>
-              </React.Fragment>
-            ))}
-          </ul>
-          </nav>
+              )}
+              <li>
+                <a href={item.link} className={styles.menu_link}>
+                  {t(item.titleKey)} {/* Используем t() для перевода */}
+                </a>
+              </li>
+            </React.Fragment>
+          ))}
+        </ul>
+      </nav>
 
+      {/* Правая часть (кнопка и язык) */}
+      <div className={styles.right_section}>
+        {/* Зелёная круглая кнопка */}
+        <button
+          className={styles.round_button}
+          onClick={toggleLanguage} // Добавляем обработчик клика
+        >
+          <img className={styles.ellips} src={ellips} alt="ellips" />
+        </button>
 
-          {/* Правая часть (кнопка и язык) */}
-          <div className={styles.right_section}>
-            {/* Зелёная круглая кнопка */}
-            <button
-              className={styles.round_button}
-              onClick={toggleLanguage} // Добавляем обработчик клика
-            >
-              <img className={styles.ellips} src={ellips} alt="ellips" />
-            </button>
-
-            {/* Переключатель языка */}
-            <div className={styles.language_switcher}>
-              <span
-                className={
-                  currentLanguage === 'en' ? styles.language_active : styles.language_inactive
-                }
-                onClick={() => handleLanguageChange('en')}
-              >
-                EN
-              </span>
-              <div className={styles.language_divider} />
-              <span
-                className={
-                  currentLanguage === 'ru' ? styles.language_active : styles.language_inactive
-                }
-                onClick={() => handleLanguageChange('ru')}
-              >
-                RU
-              </span>
-            </div>
-            <button className={styles.burger_menu}>
-              <img className={styles.burger_menu} src={burger_menu} alt="burger_menu" />
-            </button>
-          </div>
+        {/* Переключатель языка */}
+        <div className={styles.language_switcher}>
+          <span
+            className={currentLanguage === 'en' ? styles.language_active : styles.language_inactive}
+            onClick={() => handleLanguageChange('en')}
+          >
+            EN
+          </span>
+          <div className={styles.language_divider} />
+          <span
+            className={currentLanguage === 'ru' ? styles.language_active : styles.language_inactive}
+            onClick={() => handleLanguageChange('ru')}
+          >
+            RU
+          </span>
+        </div>
+        <button className={styles.burger_menu}>
+          <img className={styles.burger_menu} src={burger_menu} alt="burger_menu" />
+        </button>
+      </div>
 
       {/* </div> */}
     </header>
