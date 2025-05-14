@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './success-modal.module.css';
+import styles from './success-modal.module.scss';
 
 type TModalSuccessProps = {
   buttonText: string;
