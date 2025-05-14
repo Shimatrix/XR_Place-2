@@ -37,21 +37,23 @@ const Team = () => {
         </div>
 
         <div className={`${styles.textBlock} ${styles.textBlockRight}`}>
-          <div className={`${styles.mobileOrder1}`}>
+          <div className={`${styles.mobileAboutApproach}`}>
             <p>{t('aboutUs.description1')}</p>
           </div>
-          <div className={`${styles.mobileOrder3}`}>
+          <div className={`${styles.mobileAboutSupport}`}>
             <p>{t('aboutUs.description2')}</p>
           </div>
         </div>
       </div>
 
       <div className={styles.row}>
-        <div className={`${styles.textBlock} ${styles.textBlockLeft} ${styles.mobileOrder5}`}>
+        <div
+          className={`${styles.textBlock} ${styles.textBlockLeft} ${styles.mobileAboutPartnership}`}
+        >
           <p>{t('aboutUs.description3')}</p>
         </div>
 
-        <div className={`${styles.card} ${styles.cardRightAligned} ${styles.mobileOrder4}`}>
+        <div className={`${styles.card} ${styles.cardRightAligned} ${styles.mobileAboutDirector}`}>
           <div className={styles.linesPatternBottom}>
             <picture>
               <source
