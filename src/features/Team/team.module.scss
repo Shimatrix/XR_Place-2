@@ -1,67 +1,62 @@
+.teamSection {
+  padding-top: 150px;
+  font-family: Inter, sans-serif;
+}
+
 .header {
   display: flex;
   align-items: flex-start;
-  position: relative;
-  margin-bottom: 3.75rem; // 60px
-}
-
-.teamSection {
-  max-width: 90rem; // 1440px
-  margin: 0;
-  padding-top: 9.375rem; // 150px
-  font-family: Inter, sans-serif;
+  margin-bottom: 60px;
 }
 
 .sectionLabel {
   display: inline-block;
-  border: 0.0625rem solid #055042; // 1px
-  border-radius: 1.25rem; // 20px
-  padding: 0.4rem 1.2rem;
+  border: 1px solid #055042;
+  border-radius: 20px;
+  padding: 10px 16px;
   color: #055042;
-  font-size: 1.25rem; // 20px
+  font-size: 20px;
   text-transform: uppercase;
-  position: absolute;
-  margin-left: 6.25rem; // 100px
   font-family: Helvetica, Arial, sans-serif;
+  min-width: 111px;
 }
 
 .title {
-  font-size: 2.5rem; //64px
+  font-size: 64px;
   font-weight: 300;
-  width: 100%;
   text-align: center;
   margin: 0 auto;
   position: relative;
   z-index: 1;
   color: #4d4d4d;
+  text-transform: uppercase;
 
   span {
     color: #055042;
   }
 }
 
-// .row {
-// display: flex;
-// justify-content: space-between;
-// align-items: flex-start;
-// flex-wrap: wrap;
-//   margin: 0 200px 0;
-//   gap: 24px;
-//   min-height: 328px;
-// }
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 210px;
+  gap: 24px;
+  min-height: 328px;
+}
 
 .card {
   background: url('/mockImg/Team/card-background.jpg');
-  border-radius: 0.75rem; // 12px
-  width: 400px; // 300px
+  border-radius: 12px;
+  width: 400px;
   height: 328px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  box-shadow: 0 0.25rem 0.5rem rgb(0 0 0 / 5%);
-  position: relative; // Для абсолютного позиционирования SVG
-  overflow: hidden; // Чтобы SVG не выходили за границы
+  box-shadow: 0 4px 8px rgb(0 0 0 / 5%);
+  position: relative;
+  overflow: hidden;
   justify-content: space-between;
 }
 
@@ -91,10 +86,10 @@
 }
 
 .avatar {
-  width: 79px; // 50px
-  height: 79px;
-  border-radius: 0.5rem; // 8px
-  position: relative; // Поднимаем аватар над паттернами
+  width: 78px;
+  height: 78px;
+  border-radius: 8px;
+  position: relative;
   z-index: 2;
   margin: 18px 0 0 18px;
 }
@@ -119,11 +114,11 @@
 }
 
 .cardRightAligned {
-  align-items: flex-end; // перемещает контент к правому краю
+  align-items: flex-end;
 }
 
 .avatarRight {
-  margin: 18px 18px 0 auto; // вправо
+  margin: 18px 18px 0 auto;
 }
 
 .cardInfoRight {
@@ -137,18 +132,9 @@
   }
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 0 210px;
-  gap: 24px;
-  min-height: 328px;
-}
-
 .textBlock {
   flex: 1;
-  max-width: 37.5rem;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   font-size: 18px;
@@ -158,7 +144,7 @@
   p {
     margin: 0;
     color: #2d2d2d;
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.6;
   }
 
@@ -171,27 +157,118 @@
 
   &Right {
     text-align: left;
+    justify-content: space-between;
+
+    @media (width <= 360px) {
+      display: contents;
+    }
   }
 }
 
 @media (width <= 360px) {
-  .paragraph1 {
-    order: 1;
+  .teamSection {
+    padding-top: 60px;
   }
 
-  .card:first-of-type {
+  .header {
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .sectionLabel {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+    text-align: left;
+    margin: 0;
+    color: #055042;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 0 20px;
+    min-height: auto;
+    align-items: stretch;
+  }
+
+  .card {
+    max-width: 310px;
+    max-height: 186px;
     order: 2;
   }
 
-  .paragraph2 {
+  .mobileAboutApproach {
+    order: 1;
+  }
+
+  .mobileAboutSupport {
     order: 3;
   }
 
-  .cardRightAligned {
+  .mobileAboutDirector {
     order: 4;
   }
 
-  .textBlockLeft {
+  .mobileAboutPartnership {
     order: 5;
+  }
+
+  .cardRightAligned {
+    align-items: flex-start;
+  }
+
+  .dotsPattern {
+    width: 31px;
+    height: 40px;
+    top: 10px;
+    right: 30px;
+  }
+
+  .cardInfo {
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .linesPatternBottom {
+    top: 0;
+    right: 0;
+    left: auto;
+  }
+
+  .circleLines {
+    left: auto;
+    bottom: 1px;
+    right: 7px;
+    width: 41px;
+    height: 41px;
+  }
+
+  .avatarRight {
+    margin: 18px 0 0 18px;
+  }
+
+  .cardInfoRight {
+    margin: 0 0 21px 18px;
+    text-align: left;
+
+    h3,
+    p {
+      text-align: left;
+    }
+  }
+
+  .textBlockLeft {
+    text-align: left;
+    height: auto;
+    padding: 0;
   }
 }

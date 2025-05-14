@@ -9,7 +9,6 @@ export const addAnimation = (animationData: TAnimationData[]) => {
   const startAnimation = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log(entry.target);
         const style = animationData.filter((data) => (data.element = entry.target))[0].styleToAdd;
         entry.target.classList.add(style);
         observer.unobserve(entry.target);

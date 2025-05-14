@@ -1,0 +1,169 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+}
+
+.paragraph {
+  padding-top: 20px;
+  padding-bottom: 33px;
+  padding-right: 60px;
+  line-height: 22px;
+  word-spacing: 3.9px;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.submit_button {
+  border-radius: 20px;
+  background-color: $color-green;
+  border: transparent;
+  color: $color-white;
+  padding-top: 16px;
+  padding-bottom: 15px;
+  padding-right: 35px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.7px;
+  text-transform: uppercase;
+  background-image: url('../../assets/images/arrow.svg');
+  background-repeat: no-repeat;
+  background-position: 377px 21px;
+}
+
+.close_button {
+  padding-top: 32px;
+  padding-right: 540px;
+  border: transparent;
+  background-color: transparent;
+}
+
+.icon {
+  width: 84px;
+  height: 84px;
+}
+
+.title {
+  color: $color-dark-gray;
+  font-size: 36px;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: -0.9px;
+  word-spacing: -3.9px;
+  line-height: 37px;
+  padding-bottom: 9px;
+  padding-right: 36px;
+  text-align: start;
+}
+
+.inputs_list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.inputs_row {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+}
+
+.input {
+  border-radius: 40px;
+  border: transparent;
+  background-color: $color-dirty-white;
+  padding: 10px;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: $color-light-gray;
+  padding: 14.5px 10px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+  padding-top: 12px;
+  padding-left: 22px;
+  padding-bottom: 32px;
+}
+
+.label {
+  font-size: 10px;
+  color: $color-black;
+  font-weight: 300;
+  word-spacing: 1.2px;
+  letter-spacing: 0.2px;
+}
+
+.label_link {
+  text-decoration: underline;
+}
+
+.phone {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  background-color: $color-dirty-white;
+  border-radius: 40px;
+  width: 100%;
+}
+
+.phone_input {
+  border: transparent;
+  background-color: transparent;
+  padding: 10px;
+  min-width: 205px;
+  width: 100%;
+}
+
+.phone_input:focus {
+  outline: none;
+}
+
+.phone_input::placeholder {
+  color: $color-light-gray;
+  font-size: 20px;
+  letter-spacing: -1px;
+}
+
+.country_select {
+  background-image: url('../../assets/images/Polygon.svg');
+  background-repeat: no-repeat;
+  background-position: 46px 21px;
+}
+
+.select {
+  appearance: none;
+  border-color: transparent;
+  background-image: url('../../assets/images/flag-ru.svg');
+  background-repeat: no-repeat;
+  background-position: 21px 12px;
+  border-radius: 40px;
+  padding: 10px 28px;
+  background-color: transparent;
+  max-width: 10px;
+}
+
+.select:focus {
+  outline: none;
+}
+
+.option_ru {
+  background-color: $color-dirty-white;
+}

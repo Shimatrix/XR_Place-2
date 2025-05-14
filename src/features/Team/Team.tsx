@@ -1,5 +1,4 @@
-/* карточки участников + последовательная анимация */
-import React from 'react';
+// /* карточки участников + последовательная анимация */
 import { useTranslation } from 'react-i18next';
 import styles from './team.module.scss';
 
@@ -18,12 +17,13 @@ const Team = () => {
       <div className={styles.row}>
         <div className={styles.card}>
           <div className={styles.dotsPattern}>
-            <img src="/mockImg/Team/dotsPattern.svg" />
+            <img src="/mockImg/Team/dotsPattern.svg" alt="" />
           </div>
-
-          {/* Полоски в нижней части */}
           <div className={styles.linesPattern}>
-            <img src="/mockImg/Team/linesPattern.svg" />
+            <picture>
+              <source media="(max-width: 360px)" srcSet="/mockImg/Team/linesPattern-mobile.svg" />
+              <img src="/mockImg/Team/linesPattern.svg" alt="" />
+            </picture>
           </div>
           <img
             src="/mockImg/Team/artem-tarkhanov.jpg"
@@ -36,27 +36,35 @@ const Team = () => {
           </div>
         </div>
 
-        {/* <div className={`${styles.textBlock} ${styles.textBlockRight}`}> */}
-        <div className={`${styles.paragraph1} ${styles.textBlock} ${styles.textBlockRight}`}>
-          <p>{t('aboutUs.description1')}</p>
+        <div className={`${styles.textBlock} ${styles.textBlockRight}`}>
+          <div className={`${styles.mobileAboutApproach}`}>
+            <p>{t('aboutUs.description1')}</p>
+          </div>
+          <div className={`${styles.mobileAboutSupport}`}>
+            <p>{t('aboutUs.description2')}</p>
+          </div>
         </div>
-        <div className={`${styles.paragraph2} ${styles.textBlock} ${styles.textBlockRight}`}>
-          <p>{t('aboutUs.description2')}</p>
-        </div>
-        {/* </div> */}
       </div>
 
       <div className={styles.row}>
-        <div className={`${styles.textBlock} ${styles.textBlockLeft}`}>
-          <p>{t('aboutUs.description2')}</p>
+        <div
+          className={`${styles.textBlock} ${styles.textBlockLeft} ${styles.mobileAboutPartnership}`}
+        >
+          <p>{t('aboutUs.description3')}</p>
         </div>
 
-        <div className={`${styles.card} ${styles.cardRightAligned}`}>
+        <div className={`${styles.card} ${styles.cardRightAligned} ${styles.mobileAboutDirector}`}>
           <div className={styles.linesPatternBottom}>
-            <img src="/mockImg/Team/linesPatternBottom.svg" />
+            <picture>
+              <source
+                media="(max-width: 360px)"
+                srcSet="/mockImg/Team/linesPatternBottom-mobile.svg"
+              />
+              <img src="/mockImg/Team/linesPatternBottom.svg" alt="" />
+            </picture>
           </div>
           <div className={styles.circleLines}>
-            <img src="/mockImg/Team/circleLines.svg" />
+            <img src="/mockImg/Team/circleLines.svg" alt="" />
           </div>
           <img
             src="/mockImg/Team/victor-karneev.jpg"
