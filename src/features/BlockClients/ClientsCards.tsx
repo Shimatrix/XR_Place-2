@@ -74,7 +74,11 @@ const ClientBlockCards = () => {
   return (
     <div className={styles.clientBlockCards}>
       {cards.map((card, index) => (
-        <div key={index} className={styles.cardWrapper} onClick={() => openModal(card)}>
+        <div
+          key={index}
+          className={`${styles.cardWrapper} ${styles[`card-${index + 1}`]}`}
+          onClick={() => openModal(card)}
+        >
           <ClientsCard {...card} />
         </div>
       ))}

@@ -46,13 +46,14 @@
   margin-top: 42px;
   height: 571px;
   width: 100%;
-  background-color: #fff; // Заглушка
+  background-color: $color-white;
 }
 
 // Мобильная версия
 @media (width < 769px) {
   .block-container {
     margin: 0;
+    height: 894px;
 
     // padding: 150px 0 155px; // в App.css заданы боковые padding = 100px
     padding: 60px 0 16px;
