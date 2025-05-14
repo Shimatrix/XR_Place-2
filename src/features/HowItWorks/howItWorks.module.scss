@@ -47,6 +47,7 @@
     left: -245px;
     width: clamp(435px, 19.3vw + 351px, 630px);
     height: clamp(435px, 19.3vw + 351px, 630px);
+    scale: 0;
   }
 
   .title {
@@ -84,6 +85,15 @@
     text-align: end;
     border-image-slice: 1;
     isolation: isolate;
+    opacity: 0;
+  }
+
+  .heading.animation {
+    animation: heading-appear 1.5s linear forwards;
+  }
+
+  .circle.animation {
+    animation: circle-appear 1.5s linear forwards;
   }
 
   .heading::after {
@@ -193,5 +203,26 @@
 
   .textForMobile {
     display: block;
+  }
+}
+
+// Анимация мелкого текста
+@keyframes heading-appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes circle-appear {
+  0% {
+    scale: 0;
+  }
+
+  100% {
+    scale: 1;
   }
 }

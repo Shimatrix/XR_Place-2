@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import styles from './HowItWorks.module.scss';
 import { Modal } from '../../components/Modal/Modal';
 import { Button } from '@/components/Button/Button';
+import { useEffect } from 'react';
+import { addAnimation } from '../../utils/addAnimation';
 
 interface HowItWorksProps {
   openModal: () => void;
@@ -21,6 +23,16 @@ export const HowItWorksBlock: React.FC<HowItWorksProps> = ({
   const { t } = useTranslation();
   const location = useLocation();
   const background = location.state?.background;
+
+  useEffect(() => {
+    const heading = document.querySelector(`.${styles.heading}`);
+    const circle = document.querySelector(`.${styles.circle}`);
+
+    addAnimation([
+      { element: heading, styleToAdd: `${styles.animation}` },
+      { element: circle, styleToAdd: `${styles.animation}` },
+    ]);
+  }, []);
 
   return (
     <div className={`${styles.howItWorksBlock}`}>
