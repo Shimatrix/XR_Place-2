@@ -46,6 +46,20 @@
     "highlightedPhrase": "trust",
     "description": "Our clients are part of our team. You can always count on our support and expertise, because we strive to ensure that our partnership does not leave you indifferent"
   },
+  "clientsCards": {
+    "titleCard1": "website conversion rate increase",
+    "descriptionCard1": "The average conversion per call when connecting our widget to the site",
+    "titleCard2": "easy embedding",
+    "descriptionCard2": "Our widget works on all devices and platforms without restrictions",
+    "titleCard3": "increasing trust",
+    "descriptionCard3": "Promotes the growth of trust of potential buyers. Customers appreciate the opportunity to see the real parameters of an object, which increases their confidence in the correctness of their choice",
+    "titleCard4": "increase in real estate sales by 15%",
+    "descriptionCard4": "Using our widget helps to increase sales by 15%",
+    "titleCard5": "planning accuracy",
+    "descriptionCard5": "Our widget allows you to create accurate dimensions and proportions of real estate objects that correspond to reality",
+    "titleCard6": "interactivity",
+    "descriptionCard6": "Users return to the site to view projects again, which indicates a high level of interest"
+  },
   "projects": {
     "label": "Cooperation",
     "titlePartOne": "Completed",
