@@ -1,1 +1,63 @@
-/* Анимация expand/collapse */
+.accordionContainer {
+  margin-bottom: 79px;
+}
+
+.accordionItem {
+  border-bottom: 1px solid #ddd;
+}
+
+.accordionQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 20px;
+  padding: 20px 0 10px;
+  text-transform: uppercase;
+  text-align: left;
+  color: #191919;
+}
+
+.accordionItem:first-child .accordionQuestion {
+  border-top: 1px solid #ddd;
+}
+
+.accordionAnswer {
+  padding-bottom: 20px;
+  color: #4d4d4d;
+  text-align: left;
+  max-width: 880px;
+}
+
+.plusIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: transform 0.3s ease;
+  width: 50px;
+  height: 50px;
+}
+
+@media (width <= 360px) {
+  .accordionContainer {
+    margin-bottom: 60px;
+  }
+
+  .accordionQuestion {
+    padding: 16px 0;
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  .accordionAnswer {
+    font-size: 16px;
+  }
+
+  .plusIcon svg {
+    width: 24px;
+    height: 24px;
+  }
+}
