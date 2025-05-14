@@ -6,8 +6,8 @@ type TAnimationData = {
 };
 
 export const addAnimation = (animationData: TAnimationData[]) => {
-  const startAnimation = (entries, observer) => {
-    entries.forEach((entry) => {
+  const startAnimation = (entries: any, observer: any) => {
+    entries.forEach((entry: any) => {
       if (entry.isIntersecting) {
         const style = animationData.filter((data) => (data.element = entry.target))[0].styleToAdd;
         entry.target.classList.add(style);
