@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './Header.module.scss';
-import vector from '/src/images/vector.svg';
-import ellips from '/src/images/ellips_ 497.svg';
+import vector from '/src/assets/images/frame_49.svg';
+import ellips from '/src/assets/images/ellips_ 497.svg';
+import burger_menu from '/src/assets/images/burger_menu.svg';
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -25,64 +26,65 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.container}>
-        <nav className={styles.nav}>
-          {/* SVG логотип слева */}
-          <div className={styles.logo}>
-            <img className={styles.vector} src={vector} alt="vector" />
-          </div>
+      {/* <div className={styles.container}> */}
 
-          {/* Основное меню с разделителями */}
-          <ul className={styles.menu}>
-            {menuItems.map((item, index) => (
-              <React.Fragment key={item.id}>
-                {index > 0 && (
-                  <li className={styles.menu_divider}>
-                    <div className={styles.divider} />
-                  </li>
-                )}
-                <li>
-                  <a href={item.link} className={styles.menu_link}>
-                    {t(item.titleKey)} {/* Используем t() для перевода */}
-                  </a>
-                </li>
-              </React.Fragment>
-            ))}
-          </ul>
-
-          {/* Правая часть (кнопка и язык) */}
-          <div className={styles.right_section}>
-            {/* Зелёная круглая кнопка */}
-            <button
-              className={styles.round_button}
-              onClick={toggleLanguage} // Добавляем обработчик клика
-            >
-              <img className={styles.ellips} src={ellips} alt="ellips" />
-            </button>
-
-            {/* Переключатель языка */}
-            <div className={styles.language_switcher}>
-              <span
-                className={
-                  currentLanguage === 'en' ? styles.language_active : styles.language_inactive
-                }
-                onClick={() => handleLanguageChange('en')}
-              >
-                EN
-              </span>
-              <div className={styles.language_divider} />
-              <span
-                className={
-                  currentLanguage === 'ru' ? styles.language_active : styles.language_inactive
-                }
-                onClick={() => handleLanguageChange('ru')}
-              >
-                RU
-              </span>
-            </div>
-          </div>
-        </nav>
+      {/* SVG логотип слева */}
+      <div className={styles.logo}>
+        <img className={styles.vector} src={vector} alt="vector" />
       </div>
+
+      {/* Основное меню с разделителями */}
+      <nav className={styles.nav}>
+        <ul className={styles.menu}>
+          {menuItems.map((item, index) => (
+            <React.Fragment key={item.id}>
+              {index > 0 && (
+                <li className={styles.menu_divider}>
+                  <div className={styles.divider} />
+                </li>
+              )}
+              <li>
+                <a href={item.link} className={styles.menu_link}>
+                  {t(item.titleKey)} {/* Используем t() для перевода */}
+                </a>
+              </li>
+            </React.Fragment>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Правая часть (кнопка и язык) */}
+      <div className={styles.right_section}>
+        {/* Зелёная круглая кнопка */}
+        <button
+          className={styles.round_button}
+          onClick={toggleLanguage} // Добавляем обработчик клика
+        >
+          <img className={styles.ellips} src={ellips} alt="ellips" />
+        </button>
+
+        {/* Переключатель языка */}
+        <div className={styles.language_switcher}>
+          <span
+            className={currentLanguage === 'en' ? styles.language_active : styles.language_inactive}
+            onClick={() => handleLanguageChange('en')}
+          >
+            EN
+          </span>
+          <div className={styles.language_divider} />
+          <span
+            className={currentLanguage === 'ru' ? styles.language_active : styles.language_inactive}
+            onClick={() => handleLanguageChange('ru')}
+          >
+            RU
+          </span>
+        </div>
+        <button className={styles.burger_menu}>
+          <img className={styles.burger_menu} src={burger_menu} alt="burger_menu" />
+        </button>
+      </div>
+
+      {/* </div> */}
     </header>
   );
 };
