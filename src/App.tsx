@@ -15,8 +15,20 @@ import Footer from './features/Footer/Footer';
 import { FAQ } from './features/FAQ/FAQ';
 import Cursor from '@/components/Cursor/Cursor';
 
+import emptyStateImg from '@/assets/images/whatDoesTheWidgetDoImg/preview-mock-img.png';
+import firstStep from '@/assets/images/whatDoesTheWidgetDoImg/1.png';
+import secondStep from '@/assets/images/whatDoesTheWidgetDoImg/2.png';
+import thirdStep from '@/assets/images/whatDoesTheWidgetDoImg/3.png';
+import fourthStep from '@/assets/images/whatDoesTheWidgetDoImg/4.png';
+import fifthStep from '@/assets/images/whatDoesTheWidgetDoImg/5.png';
+import sixthStep from '@/assets/images/whatDoesTheWidgetDoImg/6.png';
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const widgetDemoImages = {
+    emptyStateImg,
+    items: [firstStep, secondStep, thirdStep, fourthStep, fifthStep, sixthStep],
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -36,7 +48,7 @@ function App() {
           <Header />
           <Cover />
           <Philosophy />
-          <WidgetDemo />
+          <WidgetDemo images={widgetDemoImages} />
           <BlockClients />
           <ProjectSlider projects={mockProjectsCards} />
           <BrowserRouter>

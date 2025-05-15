@@ -6,8 +6,6 @@ import { BlockLabel } from '@/components/BlockLabel/BlockLabel';
 import Typography from '@/components/Typography/Typography';
 import BlockTitle from '@/components/BlockTitle/BlockTitle';
 
-import emptyStateImg from '@/assets/images/whatDoesTheWidgetDoImg/preview-mock-img.png';
-
 interface TextContent {
   titleParts: string[];
   descriptions: string[];
@@ -19,7 +17,7 @@ interface TextContent {
 interface Props {
   content?: Partial<TextContent>;
   images?: {
-    emptyState: string;
+    emptyStateImg: string;
     items: string[];
   };
   highlightedTitleIndex?: 0 | 1 | 2;
@@ -39,16 +37,14 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
   const { t } = useTranslation();
 
   // Безопасное получение массива
+  function isStringArray(value: unknown): value is string[] {
+    return Array.isArray(value) && value.every((item) => typeof item === 'string');
+  }
+
   const getSafeArray = (key: WidgetKeys, fallback: string[]): string[] => {
     const result = t(key, { returnObjects: true });
-    return Array.isArray(result) ? result : fallback;
+    return isStringArray(result) ? result : fallback;
   };
-
-  // Безопасное получение строки
-  // const getSafeString = (key: WidgetKeys, fallback: string): string => {
-  //   const result = t(key);
-  //   return typeof result === 'string' ? result : fallback;
-  // };
 
   const defaultContent: TextContent = {
     titleParts: getSafeArray('widget.titleParts', ['what', 'can', 'widget']),
@@ -81,7 +77,7 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
     if (selectedItem !== null && images?.items?.[selectedItem]) {
       return images.items[selectedItem];
     }
-    return images?.emptyState || emptyStateImg;
+    return images?.emptyStateImg;
   };
 
   const getCurrentDescription = () => {
