@@ -97,8 +97,7 @@ const ClientBlockCards: React.FC = () => {
   }, []);
 
   return (
-
-    <>
+    <div>
       <div ref={containerRef} className={styles.clientBlockCards}>
         {cards.map((card, index) => (
           <div key={index} className={styles.cardWrapper} onClick={() => openModal(card)}>
@@ -106,31 +105,31 @@ const ClientBlockCards: React.FC = () => {
           </div>
         ))}
       </div>
-    <div className={styles.clientBlockCards}>
-      {cards.map((card, index) => (
-        <div
-          key={index}
-          className={`${styles.cardWrapper} ${styles[`card-${index + 1}`]}`}
-          onClick={() => openModal(card)}
-        >
-          <ClientsCard {...card} />
-        </div>
-      ))}
-
-
-      {modalData && (
-        <div className={styles.modalOverlay} onClick={closeModal}>
-          <div className={styles.modalContent}>
-            <div
-              className={styles.modalImage}
-              dangerouslySetInnerHTML={{ __html: modalData.svg }}
-            />
-            <span className={styles.percent}>{modalData.percent}</span>
-            <p className={styles.description}>{modalData.description}</p>
+      <div className={styles.clientBlockCards}>
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className={`${styles.cardWrapper} ${styles[`card-${index + 1}`]}`}
+            onClick={() => openModal(card)}
+          >
+            <ClientsCard {...card} />
           </div>
-        </div>
-      )}
-    </>
+        ))}
+
+        {modalData && (
+          <div className={styles.modalOverlay} onClick={closeModal}>
+            <div className={styles.modalContent}>
+              <div
+                className={styles.modalImage}
+                dangerouslySetInnerHTML={{ __html: modalData.svg }}
+              />
+              <span className={styles.percent}>{modalData.percent}</span>
+              <p className={styles.description}>{modalData.description}</p>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
