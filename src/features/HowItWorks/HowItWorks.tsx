@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './HowItWorks.module.scss';
 import { Modal } from '../../components/Modal/Modal';
 import { Button } from '@/components/Button/Button';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { addAnimation } from '../../utils/addAnimation';
 
 interface HowItWorksProps {
@@ -24,38 +24,53 @@ export const HowItWorksBlock: React.FC<HowItWorksProps> = ({
   const location = useLocation();
   const background = location.state?.background;
 
-  useEffect(() => {
-    const howItWorksBlock = document.querySelector(`.${styles.howItWorksBlock}`);
-    const width = howItWorksBlock?.clientWidth;
-    const circle = document.querySelector(`.${styles.circle}`);
-    const heading = document.querySelector(`.${styles.heading}`);
-    const headingText = document.querySelector(`.${styles.headingText}`);
-    const headingUnderscore = document.querySelector(`.${styles.headingUnderscore}`);
-    const title = document.querySelector(`.${styles.title}`);
-    const titleText = document.querySelector(`.${styles.titleText}`);
+  const howItWorksRef = useRef<HTMLDivElement>(null);
+  const circleRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const titleTextRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const headingTextRef = useRef<HTMLDivElement>(null);
+  const headingUnderscoreRef = useRef<HTMLDivElement>(null);
 
-    if (width && width >= 574) {
+  useEffect(() => {
+    //const howItWorksBlock = document.querySelector(`.${styles.howItWorksBlock}`);
+    //const width = howItWorksRef.current?.offsetWidth;
+    //const circle = document.querySelector(`.${styles.circle}`);
+    //const heading = document.querySelector(`.${styles.heading}`);
+    //const headingText = document.querySelector(`.${styles.headingText}`);
+    //const headingUnderscore = document.querySelector(`.${styles.headingUnderscore}`);
+    //const title = document.querySelector(`.${styles.title}`);
+    //const titleText = document.querySelector(`.${styles.titleText}`);
+
+    /*if (width && width >= 574) {
       addAnimation([
-        { element: headingText, styleToAdd: `${styles.animation}` },
-        { element: circle, styleToAdd: `${styles.animation}` },
-        { element: heading, child: headingUnderscore, styleToAdd: `${styles.animation}` },
-        { element: title, child: titleText, styleToAdd: `${styles.animation}` },
+        { element: headingTextRef.current, styleToAdd: `${styles.animation}` },
+        { element: circleRef.current, styleToAdd: `${styles.animation}` },
+        { element: headingRef.current, child: headingUnderscoreRef.current, styleToAdd: `${styles.animation}` },
+        { element: titleRef.current, child: titleTextRef.current, styleToAdd: `${styles.animation}` },
       ]);
     } else {
-      addAnimation([
-        { element: headingText, styleToAdd: `${styles.animation}` },
-        { element: heading, child: headingUnderscore, styleToAdd: `${styles.animation}` },
-        { element: howItWorksBlock, child: circle, styleToAdd: `${styles.animation}` },
-        { element: title, child: titleText, styleToAdd: `${styles.animation}` },
-      ]);
-    }
+      */ addAnimation([
+      { element: headingTextRef.current, styleToAdd: `${styles.animation}` },
+      {
+        element: headingRef.current,
+        child: headingUnderscoreRef.current,
+        styleToAdd: `${styles.animation}`,
+      },
+      {
+        element: howItWorksRef.current,
+        child: circleRef.current,
+        styleToAdd: `${styles.animation}`,
+      },
+      { element: titleRef.current, child: titleTextRef.current, styleToAdd: `${styles.animation}` },
+    ]);
   }, []);
 
   return (
-    <div className={`${styles.howItWorksBlock}`}>
-      <div className={`${styles.circle}`} />
-      <h1 className={`${styles.title}`}>
-        <div className={`${styles.titleText}`}>
+    <div ref={howItWorksRef} className={`${styles.howItWorksBlock}`}>
+      <div ref={circleRef} className={`${styles.circle}`} />
+      <h1 ref={titleRef} className={`${styles.title}`}>
+        <div ref={titleTextRef} className={`${styles.titleText}`}>
           <div>{t('how.titlePartOne')}</div>
           <div>
             <svg viewBox="0 0 211 106" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,9 +94,11 @@ export const HowItWorksBlock: React.FC<HowItWorksProps> = ({
           <div className={`${styles.textForDesctop}`}>{t('how.titlePartThree')}</div>
         </div>
       </h1>
-      <h3 className={`${styles.heading}`}>
-        <div className={`${styles.headingText}`}>{t('how.smallText')}</div>
-        <div className={`${styles.headingUnderscore}`} />
+      <h3 ref={headingRef} className={`${styles.heading}`}>
+        <div ref={headingTextRef} className={`${styles.headingText}`}>
+          {t('how.smallText')}
+        </div>
+        <div ref={headingUnderscoreRef} className={`${styles.headingUnderscore}`} />
       </h3>
       <p className={`${styles.mainText}`}>{t('how.description1')}</p>
       <p className={`${styles.mainText}`}>{t('how.description2')}</p>
