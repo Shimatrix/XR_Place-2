@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './ClientsCards.module.scss';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface ClientsCardProps {
   title?: string;
@@ -18,8 +22,9 @@ const ClientsCard: React.FC<ClientsCardProps> = ({ title, svg, className = '' })
   );
 };
 
-const ClientBlockCards = () => {
+const ClientBlockCards: React.FC = () => {
   const [modalData, setModalData] = useState<ClientsCardProps | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const cards: ClientsCardProps[] = [
     {
@@ -66,12 +71,41 @@ const ClientBlockCards = () => {
   const openModal = (card: ClientsCardProps) => {
     setModalData(card);
   };
-
   const closeModal = () => {
     setModalData(null);
   };
 
+  useEffect(() => {
+    if (!containerRef.current) return;
+    // находим все .clientCard внутри контейнера
+    const elems = Array.from(
+      containerRef.current.querySelectorAll<HTMLDivElement>(`.${styles.clientCard}`),
+    );
+    // задаём каждой задержку через CSS-переменную
+    elems.forEach((el, i) => {
+      el.style.setProperty('--delay', `${i * 150}ms`);
+    });
+    // создаём триггер: при скролле добавляем класс .is-visible
+    ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        elems.forEach((el) => el.classList.add(styles.isVisible || 'is-visible'));
+      },
+    });
+  }, []);
+
   return (
+
+    <>
+      <div ref={containerRef} className={styles.clientBlockCards}>
+        {cards.map((card, index) => (
+          <div key={index} className={styles.cardWrapper} onClick={() => openModal(card)}>
+            <ClientsCard {...card} />
+          </div>
+        ))}
+      </div>
     <div className={styles.clientBlockCards}>
       {cards.map((card, index) => (
         <div
@@ -82,6 +116,7 @@ const ClientBlockCards = () => {
           <ClientsCard {...card} />
         </div>
       ))}
+
 
       {modalData && (
         <div className={styles.modalOverlay} onClick={closeModal}>
@@ -95,7 +130,7 @@ const ClientBlockCards = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
