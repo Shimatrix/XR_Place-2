@@ -1,5 +1,18 @@
-// PartnersCard.module.scss
+// ClientsCards.module.scss
 @use '@/styles/globals' as *;
+
+// 1. Определяем keyframes анимации появления
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 .clientBlockCards {
   display: grid;
@@ -61,6 +74,7 @@
   fill: $color-blue;
 }
 
+// 2. Базовые стили карточки + анимация появления
 .clientCard {
   display: flex;
   flex-direction: column;
@@ -70,7 +84,21 @@
   border: 0.5px solid #656565;
   border-radius: $radius-xl;
   background-color: $color-white;
-  transition: all 0.5s ease;
+
+  // начальное состояние (до появления)
+  opacity: 0;
+  transform: scale(0.8);
+
+  // при добавлении .is-visible запускаем анимацию
+  &.is-visible {
+    animation: fade-in-scale 0.6s ease forwards;
+    animation-delay: var(--delay, 0ms);
+  }
+
+  // hover-эффект «волны»
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 
   &:hover {
     background-color: $color-eerie-black;
@@ -147,7 +175,7 @@
 }
 
 // Мобильная версия
-@media (width < 769px) {
+@media (width <= 768px) {
   .clientBlockCards {
     display: flex;
     flex-direction: column;
@@ -160,6 +188,8 @@
     align-items: center;
     gap: 10px;
     padding: 24px;
+
+    // сохраняем появление через .is-visible
   }
 
   .cardTitle {
