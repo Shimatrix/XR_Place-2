@@ -13,7 +13,15 @@
     "titlePartOne": "reliable partner",
     "titlePartTwo": "business success",
     "highlightedPhrase": "success",
-    "description": "We offer a unique widget for creating virtual tours that allow your clients to explore objects real estate in an interactive format."
+    "description": "We offer a unique widget for creating virtual tours that allow your clients to explore objects real estate in an interactive format.",
+    "slogan1": "Transform your",
+    "slogan2": "understanding of buying a property",
+    "slogan3": "with interactive virtual",
+    "slogan4": "3d tours",
+    "slogan1Mobile": "Transform your",
+    "slogan2Mobile": "reality",
+    "slogan3Mobile": "with interactive",
+    "slogan4Mobile": "virtual 3d tours"
   },
   "widget": {
     "label": "widget",
