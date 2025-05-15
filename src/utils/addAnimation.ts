@@ -1,21 +1,26 @@
 /* Функция для добавления анимаций */
 
-type TAnimationData = {
+interface TAnimationData {
   element: Element | null; // HTML элемент, который необходимо анимировать
+  child?: Element | null;
   styleToAdd: string; // Стиль для анимации
-};
+}
 
 export const addAnimation = (animationData: TAnimationData[]) => {
-  const startAnimation = (entries, observer) => {
-    entries.forEach((entry) => {
+  const startAnimation = (entries: any, observer: any) => {
+    entries.forEach((entry: any) => {
       if (entry.isIntersecting) {
-        const style = animationData.filter((data) => (data.element = entry.target))[0].styleToAdd;
-        entry.target.classList.add(style);
+        const component = animationData.filter((data) => data.element == entry.target)[0];
+        if (component.child) {
+          component.child.classList.add(component.styleToAdd);
+        } else {
+          component.element?.classList.add(component.styleToAdd);
+        }
         observer.unobserve(entry.target);
       }
     });
   };
-  const options = { rootMargin: '0px', threshold: 1 };
+  const options = { rootMargin: '0px', threshold: 0.7 };
   const observer = new IntersectionObserver(startAnimation, options);
   animationData.forEach((data) => {
     if (data.element) {

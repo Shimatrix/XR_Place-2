@@ -22,15 +22,31 @@
   border-radius: 50%;
   background: radial-gradient($radial-grad);
   mix-blend-mode: difference;
+  scale: 0;
+  z-index: 1;
+}
+
+.circle.animation {
+  animation: circle-appear 1.5s linear forwards;
+  animation-delay: 0.1s;
 }
 
 .title {
+  overflow: hidden;
+}
+
+.titleText {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   font-family: Helvetica, Times, sans-serif;
   font-weight: 400;
+  translate: 0 100%;
+}
+
+.titleText.animation {
+  animation: title-appear 1.5s linear forwards;
 }
 
 .mainText {
@@ -73,8 +89,6 @@
     position: relative;
     margin-right: 27px;
     margin-left: clamp(0px, 16.4vw + 130px, 369px);
-    border-bottom: 2px solid transparent;
-    border-image: linear-gradient($linear-grad);
     padding: 16px 18px 14px 0;
     color: $color-gray;
     font-weight: 400;
@@ -84,17 +98,42 @@
     text-align: end;
     border-image-slice: 1;
     isolation: isolate;
+    overflow-x: hidden;
   }
 
-  .heading::after {
+  .headingText {
+    opacity: 0;
+  }
+
+  .headingText.animation {
+    animation: heading-appear 1.5s linear forwards;
+    animation-delay: 1.5s;
+  }
+
+  .headingUnderscore {
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    bottom: 2px;
+    background-image: linear-gradient($linear-grad);
+    translate: -100% 0;
+  }
+
+  .headingUnderscore::after {
     content: '';
     position: absolute;
-    right: -2px;
-    bottom: -3px;
-    width: 5px;
-    height: 5px;
+    right: 0;
+    bottom: -2px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background-color: $color-light-green;
+    z-index: 1;
+  }
+
+  .headingUnderscore.animation {
+    animation: heading-underscore-appear 1.5s linear forwards;
+    animation-delay: 1.5s;
   }
 
   .mainText {
@@ -193,5 +232,46 @@
 
   .textForMobile {
     display: block;
+  }
+}
+
+// Анимация мелкого текста
+@keyframes heading-appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes circle-appear {
+  0% {
+    scale: 0;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes title-appear {
+  0% {
+    translate: 0 100%;
+  }
+
+  100% {
+    translate: 0;
+  }
+}
+
+@keyframes heading-underscore-appear {
+  0% {
+    translate: -100% 0;
+  }
+
+  100% {
+    translate: 0;
   }
 }
