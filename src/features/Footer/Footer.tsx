@@ -1,17 +1,42 @@
 import { useTranslation } from 'react-i18next';
 import styles from './footer.module.scss';
 import SocialLinks from './SocialLinks';
+import { useEffect, useRef, useState } from 'react';
 
 const Footer = () => {
   const { t } = useTranslation();
   const menuItems: string[] = t('footer.menu.items', { returnObjects: true }) as string[];
+  const footerRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
+  useEffect(() => {
+    const currentRef = footerRef.current; // Сохраняем в переменную
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
   return (
-    <footer className={styles.footer}>
+    <footer ref={footerRef} className={`${styles.footer} ${isVisible ? styles.visible : ''}`}>
       <div className={styles.desktopFooter}>
         <div className={styles.container}>
           <div className={styles.containerColumn}>
-            <div className={styles.column}>
+            <div className={`${styles.column} ${styles.animateColumn}`}>
               <h4 className={styles.contacts}>{t('footer.contacts.title')}</h4>
               <p className={styles.contactText}>
                 {t('footer.contacts.address.line1')}
@@ -23,27 +48,33 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className={styles.column}>
+            <div className={`${styles.column} ${styles.animateColumn}`}>
               <h4 className={styles.menu}>{t('footer.menu.title')}</h4>
               <ul className={styles.menuList}>
                 {menuItems.map((item, index) => (
-                  <li key={index}>{item}</li>
+                  <li
+                    key={index}
+                    className={styles.animateItem}
+                    style={{ '--i': index } as React.CSSProperties}
+                  >
+                    {item}
+                  </li>
                 ))}
               </ul>
             </div>
 
-            <div className={styles.column}>
+            <div className={`${styles.column} ${styles.animateColumn}`}>
               <h4 className={styles.social}>{t('footer.social.title')}</h4>
               <ul className={styles.socialList}>
-                <li>
+                <li className={styles.animateItem} style={{ '--i': 0 } as React.CSSProperties}>
                   <a href={`mailto:${t('footer.social.email')}`}>{t('footer.social.email')}</a>
                 </li>
-                <li>
+                <li className={styles.animateItem} style={{ '--i': 1 } as React.CSSProperties}>
                   <a href="https://instagram.com" target="_blank" rel="noreferrer">
                     {t('footer.social.links.instagram')}
                   </a>
                 </li>
-                <li>
+                <li className={styles.animateItem} style={{ '--i': 2 } as React.CSSProperties}>
                   <a href="https://linkedin.com" target="_blank" rel="noreferrer">
                     {t('footer.social.links.linkedin')}
                   </a>
@@ -52,7 +83,11 @@ const Footer = () => {
             </div>
           </div>
 
-          <a href="#top" className={styles.toTop}>
+          <a
+            href="#top"
+            className={`${styles.toTop} ${styles.animateItem}`}
+            style={{ '--i': 0 } as React.CSSProperties}
+          >
             {t('footer.backToTop')}
           </a>
         </div>
@@ -103,7 +138,13 @@ const Footer = () => {
         <nav className={styles.menu}>
           <ul>
             {menuItems.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li
+                key={index}
+                className={styles.animateItem}
+                style={{ '--i': index } as React.CSSProperties}
+              >
+                {item}
+              </li>
             ))}
           </ul>
         </nav>
