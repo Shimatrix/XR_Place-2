@@ -5,6 +5,11 @@
   padding: 150px 0 155px;
 }
 
+//Анимация
+.block-container {
+  position: relative; // Добавляем для позиционирования линии
+}
+
 .block-content {
   width: 100%;
   display: flex;
