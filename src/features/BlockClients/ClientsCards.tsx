@@ -100,13 +100,6 @@ const ClientBlockCards: React.FC = () => {
     <div>
       <div ref={containerRef} className={styles.clientBlockCards}>
         {cards.map((card, index) => (
-          <div key={index} className={styles.cardWrapper} onClick={() => openModal(card)}>
-            <ClientsCard {...card} />
-          </div>
-        ))}
-      </div>
-      <div className={styles.clientBlockCards}>
-        {cards.map((card, index) => (
           <div
             key={index}
             className={`${styles.cardWrapper} ${styles[`card-${index + 1}`]}`}
