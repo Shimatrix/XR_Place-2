@@ -22,6 +22,11 @@ const Philosophy: React.FC = () => {
   const dot1Ref = useRef<HTMLDivElement>(null); // Первая точка
   const dot2Ref = useRef<HTMLDivElement>(null); // Вторая точка
   const animationRef = useRef<GSAPTimeline | null>(null);
+
+  //Анимция для текста
+  const blockContainerRef = useRef<HTMLDivElement>(null);
+  const [isBlockVisible, setIsBlockVisible] = useState(false);
+
   // Функция для расчета позиций
   const setupLines = () => {
     if (!line1Ref.current || !line2Ref.current || !line3Ref.current) return;
@@ -30,15 +35,15 @@ const Philosophy: React.FC = () => {
     const containerWidth = line1Ref.current.parentElement?.offsetWidth || window.innerWidth;
 
     // Мобильные значения
-    const line1Height = isMobile ? '168px' : '76px';
-    const line2Top = isMobile ? 'calc(50vh + 308px)' : 'calc(576px + 76px)';
+    const line1Height = isMobile ? '168px' : '168px';
+    const line2Top = isMobile ? 'calc(50vh + 308px)' : 'calc(576px + 168px)';
     const line3Height = isMobile ? '556px' : '330px';
 
     // Рассчитываем максимальную ширину для анимации
     const maxLineWidth = Math.min(containerWidth, window.innerWidth - 40); // -40px для отступов
 
     // Полная высота для позиционирования второй точки
-    const totalHeight = isMobile ? 'calc(50vh + 308px + 556px)' : 'calc(576px + 76px + 330px)';
+    const totalHeight = isMobile ? 'calc(50vh + 308px + 556px)' : 'calc(576px + 168px + 330px)';
 
     // Настройка точек
     gsap.set([dot1Ref.current, dot2Ref.current], {
@@ -145,8 +150,31 @@ const Philosophy: React.FC = () => {
     };
   }, [isMobile]);
 
+  // Настройка Intersection Observer для блока Анимаций текста
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsBlockVisible(true);
+          observer.unobserve(entry.target); // Отключаем после появления
+        }
+      },
+      { threshold: 0.4 } // Срабатывает при 40% видимости блока
+    );
+
+    if (blockContainerRef.current) {
+      observer.observe(blockContainerRef.current);
+    }
+
+    return () => {
+      if (blockContainerRef.current) {
+        observer.unobserve(blockContainerRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className={styles.blockContainer}>
+    <div className={styles.blockContainer} ref={blockContainerRef}>
       {/* Три линии для анимации */}
       <div className={styles.verticalLine1} ref={line1Ref} />
       <div className={styles.horizontalLine} ref={line2Ref} />
@@ -159,8 +187,8 @@ const Philosophy: React.FC = () => {
       <div className={styles.blockContent}>
         {/* Хэдер с лейблом и заголовком */}
         <div className={styles.headerGroup}>
-          <BlockLabel className={styles.label}>{t('philosophy.label')}</BlockLabel>
-          <div className={styles.titleGroup}>
+            <BlockLabel className={`${styles.label} ${isBlockVisible ? styles.visible : ''}`}>{t('philosophy.label')}</BlockLabel>
+          <div className={`${styles.titleGroup} ${isBlockVisible ? styles.visible : ''}`}>
             <BlockTitle className={styles.titlePart}>{t('philosophy.titlePartOne')}</BlockTitle>
             <BlockTitle
               className={styles.titlePart}
@@ -174,12 +202,12 @@ const Philosophy: React.FC = () => {
         {/* Основной flex-контейнер: картинка, описание и подзаголовки */}
         <div className={styles.mediaContainer}>
           {/* 1) Картинка */}
-          <div className={styles.imageWrapper}>
+          <div className={`${styles.imageWrapper} ${isBlockVisible ? styles.visible : ''}`}>
             <img src={illustration} width={399} height={247} alt="Иллюстрация объекта" />
           </div>
 
           {/* 2) Описание */}
-          <div className={styles.descriptionWrapper}>
+          <div className={`${styles.descriptionWrapper} ${isBlockVisible ? styles.visible : ''}`}>
             <Typography variant="p" className={styles.description}>
               {t('philosophy.description')}
             </Typography>
@@ -187,33 +215,33 @@ const Philosophy: React.FC = () => {
 
           {/* 3) Подзаголовки */}
           {isMobile ? (
-            <div className={styles.combinedSubtitle}>
+            <div className={`${styles.combinedSubtitle} ${isBlockVisible ? styles.visible : ''}`}>
               <Typography variant="h3" className={styles.subtitleLine}>
-                {t('philosophy.slogan1Mobile')}
+                Преобразуйте свою
                 <br />
-                {t('philosophy.slogan2Mobile')}
+                реальность
               </Typography>
               <Typography variant="h3" className={styles.subtitleLine}>
-                {t('philosophy.slogan3Mobile')}
+                С интерактивными
                 <br />
-                {t('philosophy.slogan4Mobile')}
+                Виртуальными 3d Турами
               </Typography>
             </div>
           ) : (
             <>
-              <div className={styles.subtitleGroup}>
+              <div className={`${styles.subtitleGroup} ${isBlockVisible ? styles.visible : ''}`}>
                 <Typography variant="h3" className={styles.subtitleFirst}>
-                  {t('philosophy.slogan1')}
+                  преобразуйте своё
                   <br />
-                  {t('philosophy.slogan2')}
+                  представление о покупке недвижимости
                 </Typography>
               </div>
-              <div className={styles.subtitleGroupTwo}>
+              <div className={`${styles.subtitleGroupTwo} ${isBlockVisible ? styles.visible : ''}`}>
                 <Typography variant="h3" className={styles.subtitleSecond}>
-                  {t('philosophy.slogan3')}
+                  с интерактивными виртуальными
                 </Typography>
                 <Typography variant="h3" className={styles.subtitleThird}>
-                  {t('philosophy.slogan4')}
+                  3d турами
                 </Typography>
               </div>
             </>
