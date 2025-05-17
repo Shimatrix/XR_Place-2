@@ -22,12 +22,35 @@ import thirdStep from '@/assets/images/whatDoesTheWidgetDoImg/3.png';
 import fourthStep from '@/assets/images/whatDoesTheWidgetDoImg/4.png';
 import fifthStep from '@/assets/images/whatDoesTheWidgetDoImg/5.png';
 import sixthStep from '@/assets/images/whatDoesTheWidgetDoImg/6.png';
+import { Modal } from './components/Modal/Modal';
+import ContactFormModal from './features/ContactFormModal/ContactFormModal';
+import SuccessModalUI from './features/SuccessModal/SuccessModal';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const widgetDemoImages = {
     emptyStateImg,
     items: [firstStep, secondStep, thirdStep, fourthStep, fifthStep, sixthStep],
+  };
+
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+
+  const openContactModal = () => {
+    setIsContactModalOpen(true);
+  };
+
+  const closeContactModal = () => {
+    setIsContactModalOpen(false);
+  };
+
+  const openSuccessModal = () => {
+    setIsSuccessModalOpen(true);
+    closeContactModal();
+  };
+
+  const closeSuccessModal = () => {
+    setIsSuccessModalOpen(false);
   };
 
   useEffect(() => {
@@ -52,16 +75,31 @@ function App() {
           <BlockClients />
           <ProjectSlider projects={mockProjectsCards} />
           <BrowserRouter>
-            <HowItWorksBlock
-              openModal={() => {
-                console.log('Button Clicked');
-              }}
-              closeModal={() => {}}
-            />
+            <HowItWorksBlock openModal={openContactModal} closeModal={closeContactModal} />
           </BrowserRouter>
           <Team />
           <FAQ />
           <Footer />
+
+          {isContactModalOpen && (
+            <Modal isOpen={isContactModalOpen} onClick={closeContactModal}>
+              <ContactFormModal
+                buttonText="Отправить данные"
+                title="Готовы поднять ваш бизнес на новый уровень?"
+                onClose={closeContactModal}
+                onSubmit={openSuccessModal}
+              />
+            </Modal>
+          )}
+          {isSuccessModalOpen && (
+            <Modal isOpen={isSuccessModalOpen} onClick={closeSuccessModal}>
+              <SuccessModalUI
+                buttonText="главная страница"
+                title="спасибо за ваше доверие"
+                onClose={closeSuccessModal}
+              />
+            </Modal>
+          )}
         </>
       )}
     </>
