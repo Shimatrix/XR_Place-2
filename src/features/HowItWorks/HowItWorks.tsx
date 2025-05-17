@@ -1,28 +1,27 @@
 /* Блок "как это работает" с кнопкой CTA */
-//import { Button } from '../../components/Button';
-import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styles from './HowItWorks.module.scss';
 import { Modal } from '../../components/Modal/Modal';
 import { Button } from '@/components/Button/Button';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { addAnimation } from '../../utils/addAnimation';
+import ContactFormModal from '../ContactFormModal/ContactFormModal';
 
 interface HowItWorksProps {
-  openModal: () => void;
-  closeModal: () => void;
+  //openModal?: () => void;
+  //closeModal?: () => void;
   children?: React.ReactNode;
 }
 
 export const HowItWorksBlock: React.FC<HowItWorksProps> = ({
-  openModal,
-  closeModal,
+  //openModal,
+  //closeModal,
   children,
   ...props
 }: HowItWorksProps) => {
   const { t } = useTranslation();
-  const location = useLocation();
-  const background = location.state?.background;
+
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
   const howItWorksRef = useRef<HTMLDivElement>(null);
   const circleRef = useRef<HTMLDivElement>(null);
@@ -33,24 +32,7 @@ export const HowItWorksBlock: React.FC<HowItWorksProps> = ({
   const headingUnderscoreRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    //const howItWorksBlock = document.querySelector(`.${styles.howItWorksBlock}`);
-    //const width = howItWorksRef.current?.offsetWidth;
-    //const circle = document.querySelector(`.${styles.circle}`);
-    //const heading = document.querySelector(`.${styles.heading}`);
-    //const headingText = document.querySelector(`.${styles.headingText}`);
-    //const headingUnderscore = document.querySelector(`.${styles.headingUnderscore}`);
-    //const title = document.querySelector(`.${styles.title}`);
-    //const titleText = document.querySelector(`.${styles.titleText}`);
-
-    /*if (width && width >= 574) {
-      addAnimation([
-        { element: headingTextRef.current, styleToAdd: `${styles.animation}` },
-        { element: circleRef.current, styleToAdd: `${styles.animation}` },
-        { element: headingRef.current, child: headingUnderscoreRef.current, styleToAdd: `${styles.animation}` },
-        { element: titleRef.current, child: titleTextRef.current, styleToAdd: `${styles.animation}` },
-      ]);
-    } else {
-      */ addAnimation([
+    addAnimation([
       { element: headingTextRef.current, styleToAdd: `${styles.animation}` },
       {
         element: headingRef.current,
@@ -65,6 +47,13 @@ export const HowItWorksBlock: React.FC<HowItWorksProps> = ({
       { element: titleRef.current, child: titleTextRef.current, styleToAdd: `${styles.animation}` },
     ]);
   }, []);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
 
   return (
     <div ref={howItWorksRef} className={`${styles.howItWorksBlock}`}>
@@ -109,9 +98,12 @@ export const HowItWorksBlock: React.FC<HowItWorksProps> = ({
         onClick={openModal}
       />
 
-      {background && (
-        <Modal onClick={closeModal} title="Готовы поднять ваш бизнес на новый уровень?">
-          {children}
+      {modalIsOpen && (
+        <Modal onClose={closeModal}>
+          <ContactFormModal
+            onClose={closeModal}
+            title="Готовы поднять ваш бизнес на новый уровень?"
+          />
         </Modal>
       )}
     </div>

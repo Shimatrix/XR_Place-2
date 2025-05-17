@@ -1,17 +1,20 @@
 import React from 'react';
 import styles from './contactform.module.scss';
+import { Button } from '@/components/Button/Button';
 
 type TModalSuccessProps = {
-  buttonText: string;
+  //buttonText: string;
   title: string;
   onClose: () => void;
 };
 
-const ContactFormModal: React.FC<TModalSuccessProps> = ({ buttonText, title, onClose }) => (
+const ContactFormModal: React.FC<TModalSuccessProps> = (
+  { title, onClose }, //buttonText,
+) => (
   <div className={styles.content}>
     <h3 className={styles.title}>{title}</h3>
     <p className={styles.paragraph}>
-      Используйте наш инновационный виджет для создания захватывающих виртуальных туров и увеличьте
+      Используйте наш инновационный виджет для создания захватывающих виртуальных туров и увеличьте
       интерес к вашим объектам.{' '}
     </p>
     <form className={styles.form}>
@@ -59,13 +62,19 @@ const ContactFormModal: React.FC<TModalSuccessProps> = ({ buttonText, title, onC
           </a>
         </label>
       </div>
-      <input type="submit" className={styles.submit_button} onClick={onClose} value={buttonText} />
+      <Button
+        type="submit"
+        variant="green"
+        title={'Отправить данные'}
+        className={`${styles.button}`}
+        onClick={onClose}
+      />
     </form>
     <button className={styles.close_button}>
-      <img src="/src/assets/images/close_button.svg" alt="close button" />
+      <img src="/src/assets/images/close_button.svg" alt="close button" onClick={onClose} />
     </button>
   </div>
 );
-
+//<input type="submit" className={styles.submit_button} onClick={onClose} value={"Отправить данные"} />
 ContactFormModal.displayName = 'ContactFormModal';
 export default ContactFormModal;

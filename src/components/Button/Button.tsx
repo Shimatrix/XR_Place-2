@@ -14,6 +14,7 @@ interface ButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   title: string;
+  type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -24,6 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   title,
   disabled = false,
+  type = 'button',
   ...props
 }) => {
   const buttonClasses = [
@@ -40,7 +42,13 @@ export const Button: React.FC<ButtonProps> = ({
   title = title.split(' ').join('\xa0');
 
   return (
-    <button className={buttonClasses} onClick={onClick} disabled={loading || disabled} {...props}>
+    <button
+      className={buttonClasses}
+      onClick={onClick}
+      disabled={loading || disabled}
+      {...props}
+      type={type}
+    >
       <span className={styles.title}>{title}</span>
       {!loading && <img src={arrow} alt="arrow" className={styles.arrow} />}
       {loading && <div className={styles.loader} />}

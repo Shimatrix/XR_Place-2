@@ -52,12 +52,7 @@ function App() {
           <BlockClients />
           <ProjectSlider projects={mockProjectsCards} />
           <BrowserRouter>
-            <HowItWorksBlock
-              openModal={() => {
-                console.log('Button Clicked');
-              }}
-              closeModal={() => {}}
-            />
+            <HowItWorksBlock />
           </BrowserRouter>
           <Team />
           <FAQ />

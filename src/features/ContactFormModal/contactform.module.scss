@@ -86,7 +86,7 @@
 }
 
 .input::placeholder {
-  color: $color-light-gray;
+  color: $color-transparent-gray;
   padding: 14.5px 10px;
 }
 
@@ -137,7 +137,7 @@
 }
 
 .phone_input::placeholder {
-  color: $color-light-gray;
+  color: $color-transparent-gray;
   font-size: 20px;
   letter-spacing: -1px;
 }
