@@ -217,31 +217,31 @@ const Philosophy: React.FC = () => {
           {isMobile ? (
             <div className={`${styles.combinedSubtitle} ${isBlockVisible ? styles.visible : ''}`}>
               <Typography variant="h3" className={styles.subtitleLine}>
-                Преобразуйте свою
+                {t('philosophy.slogan1Mobile')}
                 <br />
-                реальность
+                {t('philosophy.slogan2Mobile')}
               </Typography>
               <Typography variant="h3" className={styles.subtitleLine}>
-                С интерактивными
+                {t('philosophy.slogan3Mobile')}
                 <br />
-                Виртуальными 3d Турами
+                {t('philosophy.slogan4Mobile')}
               </Typography>
             </div>
           ) : (
             <>
               <div className={`${styles.subtitleGroup} ${isBlockVisible ? styles.visible : ''}`}>
                 <Typography variant="h3" className={styles.subtitleFirst}>
-                  преобразуйте своё
+                  {t('philosophy.slogan1')}
                   <br />
-                  представление о покупке недвижимости
+                  {t('philosophy.slogan2')}
                 </Typography>
               </div>
               <div className={`${styles.subtitleGroupTwo} ${isBlockVisible ? styles.visible : ''}`}>
-                <Typography variant="h3" className={styles.subtitleSecond}>
-                  с интерактивными виртуальными
+                 <Typography variant="h3" className={styles.subtitleSecond}>
+                  {t('philosophy.slogan3')}
                 </Typography>
                 <Typography variant="h3" className={styles.subtitleThird}>
-                  3d турами
+                  {t('philosophy.slogan4')}
                 </Typography>
               </div>
             </>
