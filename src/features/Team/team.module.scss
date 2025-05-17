@@ -147,21 +147,21 @@
     font-size: 16px;
     line-height: 1.6;
   }
+}
 
-  &Left {
-    justify-content: flex-end;
-    align-items: flex-end;
-    text-align: right;
-    margin-left: auto;
-  }
+.textBlockLeft {
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
 
-  &Right {
-    text-align: left;
-    justify-content: space-between;
+.textBlockRight {
+  text-align: left;
+  justify-content: space-between;
 
-    @media (width <= 360px) {
-      display: contents;
-    }
+  @media (width <= 360px) {
+    display: contents;
   }
 }
 
