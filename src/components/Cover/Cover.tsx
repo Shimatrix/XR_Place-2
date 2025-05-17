@@ -1,12 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './Cover.module.scss';
 import vector30 from '/src/assets/images/vector_30.svg';
 import arrow from '/src/assets/images/arrow.svg';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Cover = () => {
   const [showCircle, setShowCircle] = useState(true);
   const { t } = useTranslation();
+  const figureRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Круг исчезнет через 0.5s (0.2s задержка + 0.3s анимация)
@@ -14,7 +19,24 @@ const Cover = () => {
       setShowCircle(false);
     }, 700);
 
-    return () => clearTimeout(timer);
+    // Инициализация параллакса
+    if (figureRef.current) {
+      gsap.to(figureRef.current, {
+        y: -200,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: figureRef.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+        },
+      });
+    }
+
+    return () => {
+      clearTimeout(timer);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   return (
@@ -63,6 +85,7 @@ const Cover = () => {
 
         <div className={`${styles.gridItem} ${styles.item6}`}>
           <div className={styles.container_main_shape} />
+          <div ref={figureRef} className={styles.container_main_figure} />
         </div>
 
         {/* Разделительные линии как часть grid-структуры */}
