@@ -25,6 +25,7 @@ import sixthStep from '@/assets/images/whatDoesTheWidgetDoImg/6.png';
 import { Modal } from './components/Modal/Modal';
 import ContactFormModal from './features/ContactFormModal/ContactFormModal';
 import SuccessModalUI from './features/SuccessModal/SuccessModal';
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +34,7 @@ function App() {
     items: [firstStep, secondStep, thirdStep, fourthStep, fifthStep, sixthStep],
   };
 
+  const { t } = useTranslation();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
@@ -84,8 +86,8 @@ function App() {
           {isContactModalOpen && (
             <Modal isOpen={isContactModalOpen} onClick={closeContactModal}>
               <ContactFormModal
-                buttonText="Отправить данные"
-                title="Готовы поднять ваш бизнес на новый уровень?"
+                buttonText={t('modal.modalContact.contactButton')}
+                title={t('modal.modalContact.contactTitle')}
                 onClose={closeContactModal}
                 onSubmit={openSuccessModal}
               />
@@ -94,8 +96,8 @@ function App() {
           {isSuccessModalOpen && (
             <Modal isOpen={isSuccessModalOpen} onClick={closeSuccessModal}>
               <SuccessModalUI
-                buttonText="главная страница"
-                title="спасибо за ваше доверие"
+                buttonText={t('modal.modalSuccess.successButton')}
+                title={t('modal.modalSuccess.successTitle')}
                 onClose={closeSuccessModal}
               />
             </Modal>

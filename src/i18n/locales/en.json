@@ -154,5 +154,15 @@
       "logoText": "xr place",
       "demoButton": "schedule demo"
     }
+  },
+  "modal": {
+    "modalContact": {
+      "contactTitle": "Are you ready to take your business to the next level?",
+      "contactButton": "Send data"
+    },
+    "modalSuccess": {
+      "successTitle": "Thank you for your trust",
+      "successButton": "main page"
+    }
   }
 }
