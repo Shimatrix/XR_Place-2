@@ -154,5 +154,15 @@
       "logoText": "xr place",
       "demoButton": "назначить демо"
     }
+  },
+  "modal": {
+    "modalContact": {
+      "contactTitle": "Готовы поднять ваш бизнес на новый уровень?",
+      "contactButton": "Отправить данные"
+    },
+    "modalSuccess": {
+      "successTitle": "спасибо за ваше доверие",
+      "successButton": "главная страница"
+    }
   }
 }

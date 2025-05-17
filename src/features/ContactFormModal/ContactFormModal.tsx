@@ -4,10 +4,16 @@ import styles from './contactform.module.scss';
 type TModalSuccessProps = {
   buttonText: string;
   title: string;
-  onClose: () => void;
+  onClose?: () => void;
+  onSubmit?: () => void;
 };
 
-const ContactFormModal: React.FC<TModalSuccessProps> = ({ buttonText, title, onClose }) => (
+const ContactFormModal: React.FC<TModalSuccessProps> = ({
+  buttonText,
+  title,
+  onClose,
+  onSubmit,
+}) => (
   <div className={styles.content}>
     <h3 className={styles.title}>{title}</h3>
     <p className={styles.paragraph}>
@@ -59,9 +65,9 @@ const ContactFormModal: React.FC<TModalSuccessProps> = ({ buttonText, title, onC
           </a>
         </label>
       </div>
-      <input type="submit" className={styles.submit_button} onClick={onClose} value={buttonText} />
+      <input type="submit" className={styles.submit_button} onClick={onSubmit} value={buttonText} />
     </form>
-    <button className={styles.close_button}>
+    <button className={styles.close_button} onClick={onClose}>
       <img src="/src/assets/images/close_button.svg" alt="close button" />
     </button>
   </div>
