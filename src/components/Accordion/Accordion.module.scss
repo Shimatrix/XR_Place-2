@@ -7,8 +7,7 @@
   flex-direction: row;
   border-bottom: 1px solid #ddd;
   justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
+  padding: 15px 0;
 }
 
 .plusIcon {
@@ -17,9 +16,9 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
-  transition: transform 0.3s ease;
   min-width: 50px;
   min-height: 50px;
+  transform-origin: center center;
 }
 
 .textWrapper {
@@ -28,7 +27,6 @@
 }
 
 .accordionQuestion {
-  padding-top: 15px;
   font-size: 20px;
   display: flex;
   font-weight: 400;
@@ -44,32 +42,16 @@
 .accordionAnswer {
   text-align: left;
   max-width: 880px;
-  opacity: 0;
   color: #4d4d4d;
-  transition:
-    opacity 0.3s ease,
-    padding 0.3s ease-in-out;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
   padding: 0;
 }
 
 .questionText {
-  transition: transform 0.3s ease-in-out;
   transform: translateY(17px);
-}
-
-.accordionItem.open .questionText {
-  transition: transform 0.3s ease-in-out;
-  transform: translateY(0);
-}
-
-.accordionItem.open .accordionAnswer {
-  text-align: left;
-  max-width: 880px;
-  padding: 15px 0;
-  opacity: 100;
-  transition:
-    opacity 0.3s ease-in-out,
-    padding 0.3s ease-in-out;
+  display: inline-block;
 }
 
 @media (width <= 360px) {
