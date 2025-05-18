@@ -41,12 +41,12 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
   // Безопасное получение массива
   const getSafeArray = (key: WidgetKeys, fallback: string[]): string[] => {
     const result = t(key, { returnObjects: true });
-    return Array.isArray(result) ? result : fallback;
+    return Array.isArray(result) ? result.map((item) => String(item)) : fallback;
   };
 
   //Анимция для текста
-    const blockContainerRef = useRef<HTMLDivElement>(null);
-    const [isBlockVisible, setIsBlockVisible] = useState(false);
+  const blockContainerRef = useRef<HTMLDivElement>(null);
+  const [isBlockVisible, setIsBlockVisible] = useState(false);
 
   // Безопасное получение строки
   // const getSafeString = (key: WidgetKeys, fallback: string): string => {
@@ -112,37 +112,39 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
   }, []);
 
   // Настройка Intersection Observer для блока Анимаций текста
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setIsBlockVisible(true);
-            observer.unobserve(entry.target); // Отключаем после появления
-          }
-        },
-        { threshold: 0.4 } // Срабатывает при 40% видимости блока
-      );
-  
-      if (blockContainerRef.current) {
-        observer.observe(blockContainerRef.current);
-      }
-  
-      return () => {
-        if (blockContainerRef.current) {
-          observer.unobserve(blockContainerRef.current);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsBlockVisible(true);
+          observer.unobserve(entry.target); // Отключаем после появления
         }
-      };
-    }, []);
+      },
+      { threshold: 0.4 }, // Срабатывает при 40% видимости блока
+    );
+
+    if (blockContainerRef.current) {
+      observer.observe(blockContainerRef.current);
+    }
+
+    return () => {
+      if (blockContainerRef.current) {
+        observer.unobserve(blockContainerRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className={styles.wrapper} ref={blockContainerRef}>
       <div className={styles.header}>
-        <BlockLabel className={`${styles.label} ${isBlockVisible ? styles.visible : ''}`}>{label}</BlockLabel>
-        <BlockTitle 
-          highlightedPhrase={titleParts[highlightedTitleIndex]} 
+        <BlockLabel className={`${styles.label} ${isBlockVisible ? styles.visible : ''}`}>
+          {label}
+        </BlockLabel>
+        <BlockTitle
+          highlightedPhrase={titleParts[highlightedTitleIndex]}
           className={`${styles.title} ${isBlockVisible ? styles.visible : ''}`}
-          >
-            {titleParts.join(' ')}
+        >
+          {titleParts.join(' ')}
         </BlockTitle>
       </div>
       <div className={`${styles.descriptionWrapper} ${isBlockVisible ? styles.visible : ''}`}>
