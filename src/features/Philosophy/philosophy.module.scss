@@ -27,17 +27,39 @@
   white-space: nowrap;
   margin-right: 0;
   align-self: flex-start;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2s ease, transform 0.5s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .title-group {
   display: flex;
   flex-direction: column;
   align-items: left;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1) 0.5s; // Задержка 0.5s
+
+  &.visible {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 }
 
 .description_wrapper {
   width: 372px;
   margin-left: 632px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease 1s, transform 0.5s ease 1s; // Задержка 1s
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   .description {
     margin: 0;
@@ -48,6 +70,12 @@
 .subtitleGroup {
   margin-top: 62px;
   margin-left: 418px;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1) 1.5s; // Задержка 1.5s
+
+  &.visible {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 }
 
 .subtitleFirst {
@@ -59,6 +87,12 @@
 .subtitleGroupTwo {
   margin-left: 316px;
   margin-top: 6px;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1) 1.5s; // Задержка 1.5s
+
+  &.visible {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 }
 
 .subtitleSecond {
@@ -72,6 +106,12 @@
 .imageWrapper {
   float: left;
   height: 247px;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1) 2.5s; // Задержка 2.5s
+
+  &.visible {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 }
 
 .textContainer {
@@ -150,6 +190,13 @@
     order: 3;
     display: flex;
     flex-direction: column;
+    padding-left: 9px;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1) 2.5s; // Задержка 2.5s
+
+    &.visible {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
   }
 
   .combinedSubtitle .subtitleFirst {

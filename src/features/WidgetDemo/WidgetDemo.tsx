@@ -1,10 +1,12 @@
 /* iFrame + видео кнопка + loading state */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './widget-demo.module.scss';
 import { BlockLabel } from '@/components/BlockLabel/BlockLabel';
 import Typography from '@/components/Typography/Typography';
 import BlockTitle from '@/components/BlockTitle/BlockTitle';
+
+import emptyStateImg from '@/assets/images/whatDoesTheWidgetDoImg/preview-mock-img.png';
 
 interface TextContent {
   titleParts: string[];
@@ -17,7 +19,7 @@ interface TextContent {
 interface Props {
   content?: Partial<TextContent>;
   images?: {
-    emptyStateImg: string;
+    emptyState: string;
     items: string[];
   };
   highlightedTitleIndex?: 0 | 1 | 2;
@@ -37,14 +39,20 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
   const { t } = useTranslation();
 
   // Безопасное получение массива
-  function isStringArray(value: unknown): value is string[] {
-    return Array.isArray(value) && value.every((item) => typeof item === 'string');
-  }
-
   const getSafeArray = (key: WidgetKeys, fallback: string[]): string[] => {
     const result = t(key, { returnObjects: true });
-    return isStringArray(result) ? result : fallback;
+    return Array.isArray(result) ? result : fallback;
   };
+
+  //Анимция для текста
+    const blockContainerRef = useRef<HTMLDivElement>(null);
+    const [isBlockVisible, setIsBlockVisible] = useState(false);
+
+  // Безопасное получение строки
+  // const getSafeString = (key: WidgetKeys, fallback: string): string => {
+  //   const result = t(key);
+  //   return typeof result === 'string' ? result : fallback;
+  // };
 
   const defaultContent: TextContent = {
     titleParts: getSafeArray('widget.titleParts', ['what', 'can', 'widget']),
@@ -77,7 +85,7 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
     if (selectedItem !== null && images?.items?.[selectedItem]) {
       return images.items[selectedItem];
     }
-    return images?.emptyStateImg;
+    return images?.emptyState || emptyStateImg;
   };
 
   const getCurrentDescription = () => {
@@ -103,15 +111,41 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Настройка Intersection Observer для блока Анимаций текста
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsBlockVisible(true);
+            observer.unobserve(entry.target); // Отключаем после появления
+          }
+        },
+        { threshold: 0.4 } // Срабатывает при 40% видимости блока
+      );
+  
+      if (blockContainerRef.current) {
+        observer.observe(blockContainerRef.current);
+      }
+  
+      return () => {
+        if (blockContainerRef.current) {
+          observer.unobserve(blockContainerRef.current);
+        }
+      };
+    }, []);
+
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} ref={blockContainerRef}>
       <div className={styles.header}>
-        <BlockLabel>{label}</BlockLabel>
-        <BlockTitle highlightedPhrase={titleParts[highlightedTitleIndex]}>
-          {titleParts.join(' ')}
+        <BlockLabel className={`${styles.label} ${isBlockVisible ? styles.visible : ''}`}>{label}</BlockLabel>
+        <BlockTitle 
+          highlightedPhrase={titleParts[highlightedTitleIndex]} 
+          className={`${styles.title} ${isBlockVisible ? styles.visible : ''}`}
+          >
+            {titleParts.join(' ')}
         </BlockTitle>
       </div>
-      <div className={styles.descriptionWrapper}>
+      <div className={`${styles.descriptionWrapper} ${isBlockVisible ? styles.visible : ''}`}>
         {descriptions.map((text, index) => (
           <Typography key={index} className={styles.descriptionParagraph} variant="p">
             {text}
@@ -120,7 +154,7 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
       </div>
       <div className={styles.previewWrapper}>
         <div className={styles.listWrapper}>
-          <div className={styles.listDecoration}>
+          <div className={`${styles.listDecoration} ${isBlockVisible ? styles.visible : ''}`}>
             {/* Вертикальная линия */}
             <div className={styles.verticalLine} />
             {/* Горизонтальные линии для каждого пункта */}
@@ -133,7 +167,7 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
               />
             ))}
           </div>
-          <ul className={styles.itemsList}>
+          <ul className={`${styles.itemsList} ${isBlockVisible ? styles.visible : ''}`}>
             {listItems?.map((item, index) => (
               <li
                 key={index}
@@ -146,7 +180,7 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
           </ul>
           {!isMobile && (
             <div className={styles.imgWrapper}>
-              <div className={styles.previewImg}>
+              <div className={`${styles.previewImg} ${isBlockVisible ? styles.visible : ''}`}>
                 <img src={getCurrentImage()} alt="preview-mock-img" />
               </div>
               {selectedItem !== null && (
@@ -162,7 +196,7 @@ export const WidgetDemo: React.FC<Props> = ({ content, images, highlightedTitleI
         </div>
         {isMobile && (
           <div className={styles.imgWrapper}>
-            <div className={styles.previewImg}>
+            <div className={`${styles.previewImg} ${isBlockVisible ? styles.visible : ''}`}>
               <img src={getCurrentImage()} alt="preview-mock-img" />
             </div>
             {selectedItem !== null && (
