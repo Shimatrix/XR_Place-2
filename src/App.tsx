@@ -71,7 +71,7 @@ function App() {
         <>
           <Cursor />
           <Header />
-          <Cover />
+          <Cover openModal={openContactModal} />
           <Philosophy />
           <WidgetDemo images={widgetDemoImages} />
           <BlockClients />
